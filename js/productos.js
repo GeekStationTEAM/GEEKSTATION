@@ -129,3 +129,62 @@ function clearAllProducts(){
 function redirectToCart() {
     window.location.href = 'carrito.html';
   }
+
+
+  // Variable para definir si el usuario es administrador
+const isAdmin = false; // Cambia a false para probar como usuario regular
+
+// Función para renderizar los productos
+function renderProducts(filter = "all") {
+    const productGrid = document.getElementById("product-grid");
+    productGrid.innerHTML = ""; // Limpiar los productos actuales
+
+    const filteredProducts = filter === "all" ? products : products.filter(product => product.category === filter);
+
+    filteredProducts.forEach(product => {
+        const productCard = document.createElement("article");
+        productCard.classList.add("product-card");
+
+        // Botones condicionales para el administrador
+        const adminButtons = isAdmin
+            ? `
+            <button onclick="editProductAndRedirect(${product.id})">Editar</button>
+            <button onclick="deleteProduct(${product.id})">Borrar</button>
+            `
+            : "";
+
+        productCard.innerHTML = `
+            <img src="${product.img}" alt="${product.name}">
+            <h2>${product.name}</h2>
+            <p>${product.price}</p>
+            <button onclick="redirectToCart()">Agregar al carrito</button>
+            ${adminButtons}
+        `;
+
+        productGrid.appendChild(productCard);
+    });
+}
+
+// Simula si el usuario es administrador. 
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    const deleteAllProductsBtn = document.getElementById("delete-all-products-btn");
+
+    // Muestra el botón solo si el usuario es administrador
+    if (isAdmin) {
+        deleteAllProductsBtn.classList.remove("d-none");
+    }
+});
+
+
+
+// Cargar productos al cargar la página
+window.onload = () => {
+    renderProducts();
+};
+
+// Filtrar productos cuando cambie el select
+document.getElementById("category-filter").addEventListener("change", (event) => {
+    renderProducts(event.target.value);
+});
