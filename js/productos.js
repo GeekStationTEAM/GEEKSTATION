@@ -132,7 +132,7 @@ function redirectToCart() {
 
 
   // Variable para definir si el usuario es administrador
-const isAdmin = false; // Cambia a false para probar como usuario regular
+const isAdmin = true; // Cambia a false para probar como usuario regular
 
 // Función para renderizar los productos
 function renderProducts(filter = "all") {
