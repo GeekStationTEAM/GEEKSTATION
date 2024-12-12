@@ -14,7 +14,7 @@ const products = [
     { id: 12, name: "Huawei Band 9", category: "Smartwatch", price: "$609 MXN", img: "./src/img/productos/img_Gera/huaweiband9_1.jpg" },
     { id: 13, name: "Xiaomi 9", category: "Smartwatch", price: "$760 MXN", img: "./src/img/productos/img_Gera/xiaomi9_1.jpg" },
     { id: 14, name: "Pico 4 VR", category: "Smartwatch", price: "$7,999 MXN", img: "./src/img/productos/img_Gera/pico4_2.jpg" },
-    { id: 15, name: "Zaklu porta gafas VR", category: "Gafas", price: "$309 MXN", img: "./src/img/productos/img_Gera/zakulu_2.jpg" },
+    { id: 15, name: "Zaklu porta gafas VR", category: "Smartwatch", price: "$309 MXN", img: "./src/img/productos/img_Gera/zakulu_2.jpg" },
     { id: 16, name: "Audífonos Sony MDR-ZX110", category: "Audifonos", price: "$344 MXN", img: "./src/img/productos/img_Cyn/AudifonosSony.avif" },
     { id: 17, name: "Xiaomi Audífonos in Ear Inalámbricos Buds 6 Play", category: "Audifonos", price: "$69.30 MXN", img: "./src/img/productos/img_Cyn/xiaomiAudifonos.jpg" },
     { id: 18, name: "Cable HDMI 10K 8K 4K 2 Metros Ultra Alta Velocidad", category: "Cables", price: "$249 MXN", img: "./src/img/productos/img_Cyn/hdmiCable.jpg" },
