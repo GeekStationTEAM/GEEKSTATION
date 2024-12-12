@@ -43,11 +43,18 @@
                     autocomplete="new-password">
                 </div>
                 <br>
+                <!-- Campo oculto para indicar que el usuario debe ser administrador -->
+                 <input type="hidden" id="userType" value="admin">
+ 
                 <div class="text-center">
                   <button type="submit" class="btn btn-primary">Iniciar sesión</button>
+                  
                 </div>
                 <br>
                 <p>No tienes una cuenta? <a href="registro.html">Regístrate aquí</a></p>
+
+                
+                 
               </form>
             </div>
           </div>
@@ -90,7 +97,14 @@
 
     loadComponent("header", "./components/header.html");
     loadComponent("footer", "./components/footer.html");
+    
+
+
+
+
+
   </script>
+  <script src="./js/admin.js"></script>
   <script src="./js/usuarios.js"></script>
   <script src="./js/script.js"></script>
   <!-- Bootstrap JS -->
@@ -98,3 +112,5 @@
 </body>
 
 </html>
+
+
