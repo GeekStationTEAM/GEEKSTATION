@@ -69,8 +69,7 @@ const products = [
             <h2>${product.name}</h2>
             <p>${product.price}</p>
             <button onclick = "redirectToCart()"> Agregar al carrito</button>
-            <button onclick = "editProductAndRedirect(${product.id})">Editar</button>
-             <button onclick = "deleteProduct(${product.id})">Borrar</button>
+           
         `;
   
         productGrid.appendChild(productCard);
@@ -87,7 +86,7 @@ const products = [
     renderProducts(event.target.value);
   });
   
-  
+  /*
   //Modificar productos
   function updateProduct (id, newName, newPrice, newCategory, newImg){
     const product =products.find (p => p.id === id); //Busca el producto por id
@@ -123,7 +122,7 @@ const products = [
     products.length = 0; // vacía el arreglo
     renderProducts(); //renderiza otra vez
   }
-  
+  */
   
   // Agregar al carrito
   function redirectToCart() {
