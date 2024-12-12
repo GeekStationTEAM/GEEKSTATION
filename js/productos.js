@@ -70,9 +70,9 @@ function renderProducts(filter = "all") {
             <h2>${product.name}</h2>
             <p>${product.price}</p>
             <button onclick = "redirectToCart()"> Agregar al carrito</button>
-            <button onclick = "editProductAndRedirect(${product.id})">Editar</button>
              <button onclick = "deleteProduct(${product.id})">Borrar</button>
         `;
+//            <button onclick = "editProductAndRedirect(${product.id})">Editar</button> ---DORMI BOTON QUE REDIRECCIONABA A REGISTRO PRODUCTO ADMIN
 
         productGrid.appendChild(productCard);
     });
