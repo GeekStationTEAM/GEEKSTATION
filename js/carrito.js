@@ -1,11 +1,11 @@
  // Productos disponibles
  const products = [
-    { id: 1, name: "Laptop Acer Aspire 3", category: "Laptops", price: 8700, image:"./src/img/productos/img_Andy/ACER3.jpg" },
-    { id: 2, name: "Laptop ASUS VivoBook 5", category: "Laptops", price: 8600, image: "./src/img/productos/img_Andy/ASUS3.jpg"},
-    { id: 3, name: "Laptop DELL Inspiron 15", category: "Laptops", price: 8499, image: "./src/img/productos/img_Andy/DELL2.jpg"},
-    { id: 4, name: "Laptop HP Pavilion x360", category: "Laptops", price: 10999, image: "./src/img/productos/img_Andy/HP3.jpg" },
-    { id: 5, name: "Lenovo IdeaPad 3", category: "Laptops", price: 7000, image: "./src/img/productos/img_Andy/LENOVO2.jpg" },
-    { id: 6, name: "PC Gamer", category: "Computadoras", price: 25000, image: "./src/img/productos/img_Jluis/HP_AllInOne.png" },
+    { id: 1, name: "Laptop Acer Aspire 3", category: "Laptops", price: 8700.00, image:"./src/img/productos/img_Andy/ACER3.jpg" },
+    { id: 2, name: "Laptop ASUS VivoBook 5", category: "Laptops", price: 8600.00, image: "./src/img/productos/img_Andy/ASUS3.jpg"},
+    { id: 3, name: "Laptop DELL Inspiron 15", category: "Laptops", price: 8499.00, image: "./src/img/productos/img_Andy/DELL2.jpg"},
+    { id: 4, name: "Laptop HP Pavilion x360", category: "Laptops", price: 10999.00, image: "./src/img/productos/img_Andy/HP3.jpg" },
+    { id: 5, name: "Lenovo IdeaPad 3", category: "Laptops", price: 7000.00, image: "./src/img/productos/img_Andy/LENOVO2.jpg" },
+    { id: 6, name: "PC Gamer", category: "Computadoras", price: 25000.00, image: "./src/img/productos/img_Jluis/HP_AllInOne.png" },
 ];
 
 
