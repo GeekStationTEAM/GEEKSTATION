@@ -1,145 +1,159 @@
-DROP DATABASE IF EXISTS `IBL`; 
-
-CREATE SCHEMA IF NOT EXISTS `IBL` DEFAULT CHARACTER SET utf8 ;
-USE `IBL` ;
+CREATE SCHEMA IF NOT EXISTS `GEEKSTATION` DEFAULT CHARACTER SET utf8mb4 ;
+USE `GEEKSTATION` ;
 
 -- -----------------------------------------------------
--- Table `mydb`.`tipo_de_usuario`
+-- Table `GEEKSTATION`.`categorias`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `IBL`.`tipo_de_usuario` (
-  `id_tipo_de_usuario` INT NOT NULL AUTO_INCREMENT,
-  `nombre_del_tipo` VARCHAR(45) NOT NULL,
-  `descripcion_tipo` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`id_tipo_de_usuario`))
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `mydb`.`usuario`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `IBL`.`usuario` (
-  `id_usuario` INT NOT NULL AUTO_INCREMENT,
-  `nombre` VARCHAR(45) NOT NULL,
-  `apellido_materno` VARCHAR(45) NOT NULL,
-  `apellido_paterno` VARCHAR(45) NOT NULL,
-  `email` VARCHAR(45) NOT NULL,
-  `password` VARCHAR(45) NOT NULL,
-  `telefono` VARCHAR(45) NOT NULL,
-  `pais` VARCHAR(45) NOT NULL,
-  `municipio` VARCHAR(45) NOT NULL,
-  `direccion` VARCHAR(45) NOT NULL,
-  `estado` VARCHAR(45) NOT NULL,
-  `rfc` VARCHAR(45) NOT NULL,
-  `tipo_de_usuario_id_tipo_de_usuario` INT NOT NULL,
-  PRIMARY KEY (`id_usuario`, `tipo_de_usuario_id_tipo_de_usuario`),
-  INDEX `fk_usuario_tipo_de_usuario_idx` (`tipo_de_usuario_id_tipo_de_usuario` ASC) VISIBLE,
-  CONSTRAINT `fk_usuario_tipo_de_usuario`
-    FOREIGN KEY (`tipo_de_usuario_id_tipo_de_usuario`)
-    REFERENCES `IBL`.`tipo_de_usuario` (`id_tipo_de_usuario`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+CREATE TABLE IF NOT EXISTS `GEEKSTATION`.`categorias` (
+  `id_categorias` INT NOT NULL AUTO_INCREMENT,
+  `nombre` VARCHAR(80) NOT NULL,
+  `descripcion` VARCHAR(80) NOT NULL,
+  PRIMARY KEY (`id_categorias`))
 ENGINE = InnoDB
-COMMENT = '		';
+DEFAULT CHARACTER SET = utf8mb4;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`pedido`
+-- Table `GEEKSTATION`.`pago`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `IBL`.`pedido` (
-  `id_pedido` INT NOT NULL AUTO_INCREMENT,
-  `fecha` DATE NOT NULL,
-  `estado` TEXT NOT NULL,
-  `total` VARCHAR(45) NOT NULL,
-  `usuario_id_usuario` INT NOT NULL,
-  `usuario_tipo_de_usuario_id_tipo_de_usuario` INT NOT NULL,
-  PRIMARY KEY (`id_pedido`),
-  INDEX `fk_pedido_usuario1_idx` (`usuario_id_usuario` ASC, `usuario_tipo_de_usuario_id_tipo_de_usuario` ASC) VISIBLE,
-  CONSTRAINT `fk_pedido_usuario1`
-    FOREIGN KEY (`usuario_id_usuario` , `usuario_tipo_de_usuario_id_tipo_de_usuario`)
-    REFERENCES `IBL`.`usuario` (`id_usuario` , `tipo_de_usuario_id_tipo_de_usuario`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `mydb`.`categoria`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `IBL`.`categoria` (
-  `id_categoria` INT NOT NULL AUTO_INCREMENT,
-  `nombre` VARCHAR(45) NOT NULL,
-  `descripcion` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`id_categoria`))
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `mydb`.`producto`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `IBL`.`producto` (
-  `id_producto` INT NOT NULL AUTO_INCREMENT,
-  `sku` VARCHAR(45) NOT NULL,
-  `descripcion` VARCHAR(45) NOT NULL,
-  `precio` DOUBLE NOT NULL,
-  `url` VARCHAR(45) NOT NULL,
-  `stock` VARCHAR(45) NOT NULL,
-  `color` VARCHAR(45) NOT NULL,
-  `marca` VARCHAR(45) NOT NULL,
-  `nombre_producto` VARCHAR(45) NOT NULL,
-  `categoria_id_categoria` INT NOT NULL,
-  `usuario_id_usuario` INT NOT NULL,
-  `usuario_tipo_de_usuario_id_tipo_de_usuario` INT NOT NULL,
-  PRIMARY KEY (`id_producto`, `categoria_id_categoria`, `usuario_id_usuario`, `usuario_tipo_de_usuario_id_tipo_de_usuario`),
-  INDEX `fk_producto_categoria1_idx` (`categoria_id_categoria` ASC) VISIBLE,
-  INDEX `fk_producto_usuario1_idx` (`usuario_id_usuario` ASC, `usuario_tipo_de_usuario_id_tipo_de_usuario` ASC) VISIBLE,
-  CONSTRAINT `fk_producto_categoria1`
-    FOREIGN KEY (`categoria_id_categoria`)
-    REFERENCES `IBL`.`categoria` (`id_categoria`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_producto_usuario1`
-    FOREIGN KEY (`usuario_id_usuario` , `usuario_tipo_de_usuario_id_tipo_de_usuario`)
-    REFERENCES `IBL`.`usuario` (`id_usuario` , `tipo_de_usuario_id_tipo_de_usuario`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `mydb`.`pago`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `IBL`.`pago` (
+CREATE TABLE IF NOT EXISTS `GEEKSTATION`.`pago` (
   `id_pago` INT NOT NULL AUTO_INCREMENT,
   `fecha` DATE NOT NULL,
-  `descuento` VARCHAR(45) NOT NULL,
-  `metodo` VARCHAR(45) NOT NULL,
-  `iva` VARCHAR(45) NOT NULL,
+  `metodo_pago` VARCHAR(45) NOT NULL,
   `folio_factura` VARCHAR(45) NOT NULL,
-  `pedido_id_pedido` INT NOT NULL,
-  PRIMARY KEY (`id_pago`, `pedido_id_pedido`),
-  INDEX `fk_pago_pedido1_idx` (`pedido_id_pedido` ASC) VISIBLE,
-  CONSTRAINT `fk_pago_pedido1`
-    FOREIGN KEY (`pedido_id_pedido`)
-    REFERENCES `IBL`.`pedido` (`id_pedido`)
+  PRIMARY KEY (`id_pago`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4;
+
+
+-- -----------------------------------------------------
+-- Table `GEEKSTATION`.`tipo_usuario`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `GEEKSTATION`.`tipo_usuario` (
+  `id_tipo` INT NOT NULL AUTO_INCREMENT,
+  `nombre_tipo` VARCHAR(45) NOT NULL,
+  `descripción_tipo` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`id_tipo`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `GEEKSTATION`.`usuario`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `GEEKSTATION`.`usuario` (
+  `id_usuario` INT NOT NULL AUTO_INCREMENT,
+  `nombre` VARCHAR(80) NOT NULL,
+  `apellido` VARCHAR(80) NOT NULL,
+  `email` VARCHAR(80) NOT NULL,
+  `password` VARCHAR(80) NOT NULL,
+  `telefono` VARCHAR(80) NOT NULL,
+  `delegacion` VARCHAR(45) NOT NULL,
+  `RFC` VARCHAR(13) NOT NULL,
+  `id_tipo_usuario` INT NOT NULL,
+  PRIMARY KEY (`id_usuario`),
+  INDEX `fk_usuario_tipo_usuario1_idx` (`id_tipo_usuario` ASC) VISIBLE,
+  CONSTRAINT `fk_usuario_tipo_usuario1`
+    FOREIGN KEY (`id_tipo_usuario`)
+    REFERENCES `GEEKSTATION`.`tipo_usuario` (`id_tipo`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
-COMMENT = '									';
- INSERT INTO tipo_de_usuario(nombre_del_tipo, descripcion_tipo)
- VALUES
+DEFAULT CHARACTER SET = utf8mb4;
+
+
+-- -----------------------------------------------------
+-- Table `GEEKSTATION`.`pedidos`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `GEEKSTATION`.`pedidos` (
+  `id_pedidos` INT NOT NULL  AUTO_INCREMENT,
+  `fecha` DATE NOT NULL,
+  `estado` VARCHAR(45) NOT NULL,
+  `total` DOUBLE NOT NULL,
+  `descripcion` TEXT NOT NULL,
+  `usuario_id` INT NOT NULL,
+  `pago_id` INT NOT NULL,
+  PRIMARY KEY (`id_pedidos`),
+  INDEX `fk_pedidos_usuario1_idx` (`usuario_id` ASC) VISIBLE,
+  INDEX `fk_pedidos_pago1_idx` (`pago_id` ASC) VISIBLE,
+  CONSTRAINT `fk_pedidos_usuario1`
+    FOREIGN KEY (`usuario_id`)
+    REFERENCES `GEEKSTATION`.`usuario` (`id_usuario`),
+  CONSTRAINT `fk_pedidos_pago1`
+    FOREIGN KEY (`pago_id`)
+    REFERENCES `GEEKSTATION`.`pago` (`id_pago`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4;
+
+
+-- -----------------------------------------------------
+-- Table `GEEKSTATION`.`productos`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `GEEKSTATION`.`productos` (
+  `id_producto` INT NOT NULL,
+  `nombre` VARCHAR(80) NOT NULL,
+  `descripcion` TEXT NOT NULL,
+  `sku` VARCHAR(45) NOT NULL,
+  `marca` VARCHAR(45) NOT NULL,
+  `color` VARCHAR(45) NOT NULL,
+  `url` VARCHAR(45) NOT NULL,
+  `stock` INT NOT NULL,
+  `precio` DOUBLE NOT NULL,
+  `categorias_id` INT NOT NULL,
+  PRIMARY KEY (`id_producto`, `categorias_id`),
+  INDEX `fk_productos_categorias1_idx` (`categorias_id` ASC) VISIBLE,
+  CONSTRAINT `fk_productos_categorias1`
+    FOREIGN KEY (`categorias_id`)
+    REFERENCES `GEEKSTATION`.`categorias` (`id_categorias`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4;
+
+
+-- -----------------------------------------------------
+-- Table `GEEKSTATION`.`productos_has_pedidos`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `GEEKSTATION`.`productos_has_pedidos` (
+  `pedidos_id` INT NOT NULL,
+  `productos_id` INT NOT NULL,
+  `productos_categorias_id` INT NOT NULL,
+  PRIMARY KEY (`pedidos_id`, `productos_id`, `productos_categorias_id`),
+  INDEX `fk_productos_has_pedidos_pedidos1_idx` (`pedidos_id` ASC) VISIBLE,
+  INDEX `fk_productos_has_pedidos_productos1_idx` (`productos_id` ASC, `productos_categorias_id` ASC) VISIBLE,
+  CONSTRAINT `fk_productos_has_pedidos_pedidos1`
+    FOREIGN KEY (`pedidos_id`)
+    REFERENCES `GEEKSTATION`.`pedidos` (`id_pedidos`),
+  CONSTRAINT `fk_productos_has_pedidos_productos1`
+    FOREIGN KEY (`productos_id` , `productos_categorias_id`)
+    REFERENCES `GEEKSTATION`.`productos` (`id_producto` , `categorias_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4;
+
+
+
+-- Insertar tipos de usuario
+INSERT INTO tipo_usuario (nombre_tipo, descripción_tipo)
+VALUES
  ('administrador', 'puede hacer modificaciones en la página'),
- ('cliente','realiza compras en la página');
+ ('cliente', 'realiza compras en la página');
  
- INSERT INTO usuario (nombre, apellido_paterno, apellido_materno, email, password, telefono, pais, municipio, direccion, estado, rfc, tipo_de_usuario_id_tipo_de_usuario) 
- values 
-('Ana', 'Ortiz', 'Lopez', 'anaortizl@gmail.com', 'adminadmin', '5573892234', 'Mexico', 'Benito Juarez', 'Xola #13', 'CDMX', 'KJCD900914H2A', 1),
-('Maria Fernanda', 'Lopez', 'Martinez', 'mlopezmartinez@gmail.com', 'securepass123', '5551234567', 'Mexico', 'Cuernavaca', 'Avenida Reforma #101', 'Morelos', 'LOMA921203XJ2', 2),
-('Juan Carlos', 'Ramirez', 'Hernandez', 'jcramirezhernandez@gmail.com', 'mypassword2024', '3337894561', 'Mexico', 'Guadalajara', 'Calle Independencia #17', 'Jalisco', 'RAHC880315KI9', 2),
-('Ana Isabel', 'Perez', 'Santos', 'anaperezsantos@gmail.com', 'qwerty7890', '2295671234', 'Mexico', 'Veracruz', 'Boulevard Ruiz Cortines #12', 'Veracruz', 'PESA970521ZK5', 2),
-('Roberto', 'Gonzalez', 'Morales', 'rgonzalezmorales@gmail.com', 'helloWorld01', '9984567890', 'Mexico', 'Cancun', 'Calle Palma Real #45', 'Quintana Roo', 'GOMO860730LZ7', 2);
+ -- Insertar usuarios
+INSERT INTO usuario (nombre, apellido, email, password, telefono, delegacion, RFC, id_tipo_usuario) 
+VALUES 
+('Ana', 'Ortiz', 'anaortizl@gmail.com', 'adminadmin', '5573892234', 'Benito Juarez', 'KJCD900914H2A', 1),
+('Maria Fernanda', 'Lopez', 'mlopezmartinez@gmail.com', 'securepass123', '5551234567', 'Cuernavaca', 'LOMA921203XJ2', 2),
+('Juan Carlos', 'Ramirez', 'jcramirezhernandez@gmail.com', 'mypassword2024', '3337894561', 'Guadalajara', 'RAHC880315KI9', 2),
+('Ana Isabel', 'Perez', 'anaperezsantos@gmail.com', 'qwerty7890', '2295671234', 'Veracruz', 'PESA970521ZK5', 2),
+('Roberto', 'Gonzalez', 'rgonzalezmorales@gmail.com', 'helloWorld01', '9984567890', 'Cancun', 'GOMO860730LZ7', 2);
 
 
-INSERT INTO categoria (nombre, descripcion)
+ 
+ -- Insertar categorías
+INSERT INTO categorias (nombre, descripcion)
 VALUES
 ('Laptops', 'Laptops para trabajo y juegos'),
 ('Computadoras', 'Computadoras de escritorio'),
@@ -153,98 +167,91 @@ VALUES
 ('Mouse', 'Dispositivos de entrada para computadora'),
 ('VR', 'Gafas de realidad virtual');
 
-INSERT INTO producto (sku, descripcion, precio, url, stock, marca, color, nombre_producto, categoria_id_categoria, usuario_id_usuario,usuario_tipo_de_usuario_id_tipo_de_usuario) 
-values
- ('37592', 'Acer Aspire 3', 8700, 'ibl.com/acer-aspire-3', 400, 'ACER', 'gris', 'Aspire 3', 1, 1, 1),
-('81461', 'Acer Chromebook Spin 713', 14000, 'ibl.com/acer-chromebook-spin-713', 380, 'HACER', 'gris', 'Chromebook Spin 713', 2, 1, 1),
-('63084', 'All In One HP Intel Celeron-N100', 6899, 'ibl.com/all-in-one-hp-celeron-n100', 200, 'HP', 'gris', 'All In One Celeron', 3, 1, 1),
-('29715', 'Amazon Fire HD 10', 4500, 'ibl.com/amazon-fire-hd-10', 550, 'Amazon', 'gris', 'Fire HD 10', 4, 1, 1),
-('63184', 'ASUS VivoBook 5', 8600, 'ibl.com/asus-vivobook-5', 300, 'ASUS', 'gris', 'VivoBook 5', 1, 1, 1),
-('95217', 'Audífonos Alámbricos JBLC50HIWHT', 69.30, 'ibl.com/audifonos-jbl', 400, 'JBL', 'negro', 'JBLC50HIWHT', 5, 1, 1),
-('14376', 'Cable HDMI 10K 8K 4K 2 Metros', 249, 'ibl.com/cable-hdmi-ultra', 350, 'STEREN', 'negro', 'Cable HDMI', 6, 1, 1),
-('52804', 'Cámara Web HD 1080P', 206, 'ibl.com/camara-web-hd', 300, 'STEREN', 'negro', 'Cámara Web HD', 7, 1, 1),
-('16937', 'Corsair K100 RBG', 220, 'ibl.com/corsair-k100', 330, 'Corsair', 'negro', 'K100 RBG', 8, 1, 1),
-('71528', 'Dell Inspiron 14', 15500, 'ibl.com/dell-inspiron-14', 450, 'DELL', 'gris', 'Inspiron 14', 1, 1, 1),
-('31694', 'Dell Inspiron 15', 10999, 'ibl.com/dell-inspiron-15', 450, 'DELL', 'gris', 'Inspiron 15', 1, 1, 1),
-('83295', 'Dell OPTIPLEX 3070', 5799, 'ibl.com/dell-optiplex-3070', 400, 'DELL', 'gris', 'OPTIPLEX 3070', 9, 1, 1),
-('41617', 'Dell OPTIPLEX i5 8GB SSD', 8899, 'ibl.com/dell-optiplex-i5', 300, 'DELL', 'gris', 'OPTIPLEX i5', 9, 1, 1),
-('95321', 'Dell Optiplex i5-420', 8399, 'ibl.com/dell-optiplex-i5-420', 290, 'DELL', 'gris', 'Optiplex i5-420', 9, 1, 1),
-('68417', 'Dell OPTIPLEX SFF 3080', 5799, 'ibl.com/dell-optiplex-sff', 335, 'DELL', 'gris', 'OPTIPLEX SFF 3080', 9, 1, 1),
-('37059', 'Garmin Forerunner 165', 2899, 'ibl.com/garmin-forerunner-165', 654, 'Garmin', 'negro', 'Forerunner 165', 10, 1, 1),
-('19468', 'Google Pixel 8', 19000, 'ibl.com/google-pixel-8', 120, 'Google', 'gris', 'Pixel 8', 11, 1, 1),
-('27651', 'HP 800 G2 SFF-Core i5', 5999, 'ibl.com/hp-800-g2', 460, 'HP', 'gris', 'HP 800 G2', 9, 1, 1),
-('48131', 'HP i5 G420', 6799, 'ibl.com/hp-g420', 550, 'HP', 'gris', 'HP G420', 9, 1, 1),
-('72596', 'HP i5 USFF 4 GB RAM', 4299, 'ibl.com/hp-usff', 670, 'HP', 'gris', 'HP USFF', 9, 1, 1),
-('10674', 'HP Pavilion x360', 10999, 'ibl.com/hp-pavilion-x360', 300, 'HP', 'gris', 'Pavilion x360', 1, 1, 1),
-('94382', 'HP Victus 15', 17000, 'ibl.com/hp-victus-15', 250, 'HP', 'gris', 'Victus 15', 1, 1, 1),
-('52710', 'Huawei Band 9', 609, 'ibl.com/huawei-band-9', 600, 'Huawei', 'negro', 'Band 9', 2, 1, 1),
-('69843', 'Infinix Note 40 pro', 4500, 'ibl.com/infinix-note-40', 345, 'Infinix', 'gris', 'Note 40 pro', 3, 1, 1),
-('10367', 'iPad Pro 11 M2', 20999, 'ibl.com/ipad-pro-11', 250, 'Apple', 'gris', 'iPad Pro 11', 4, 1, 1),
-('35948', 'iPhone 15 Pro', 28000, 'ibl.com/iphone-15-pro', 250, 'Apple', 'gris', 'iPhone 15 Pro', 3, 1, 1),
-('76211', 'Lenovo IdeaPad 3', 9990, 'ibl.com/lenovo-ideapad-3', 546, 'Lenovo', 'gris', 'IdeaPad 3', 1, 1, 1),
-('94853', 'Lenovo sff m710S', 5799, 'ibl.com/lenovo-m710s', 765, 'Lenovo', 'gris', 'M710S i5-7500', 2, 1, 1),
-('21617', 'Lenovo Tab P11 Pro', 9500, 'ibl.com/lenovo-tab-p11', 876, 'Lenovo', 'gris', 'Tab P11 Pro', 4, 1, 1),
-('57384', 'Lenovo Tiny M720Q', 7499, 'ibl.com/lenovo-m720q', 345, 'Lenovo', 'gris', 'Tiny M720Q', 2, 1, 1),
-('62091', 'Lenovo WORKSTATION P520', 11399, 'ibl.com/lenovo-workstation-p520', 654, 'Lenovo', 'gris', 'Workstation P520', 2, 1, 1),
-('13748', 'MacBook Air M1', 17990, 'ibl.com/macbook-air-m1', 234, 'Apple', 'gris', 'MacBook Air M1', 4, 1, 1),
-('19561', 'Motorola Edge 40', 15990, 'ibl.com/motorola-edge-40', 654, 'Motorola', 'gris', 'Edge 40', 3, 1, 1),
-('24735', 'Motorola Edge 50', 7500, 'ibl.com/motorola-edge-50', 765, 'Motorola', 'gris', 'Edge 50 Fusión', 3, 1, 1),
-('86912', 'Mouse inalámbrico Logitech', 58, 'ibl.com/mouse-logitech', 987, 'Logitech', 'gris', 'Mouse Logitech', 5, 1, 1),
-('45379', 'Mouse inalámbrico vertical', 125, 'ibl.com/mouse-vertical', 345, 'STEREN', 'gris', 'Mouse vertical', 5, 1, 1),
-('42608', 'Oppo Reno 11 5G', 7000, 'ibl.com/oppo-reno-11', 654, 'OPPO', 'gris', 'Reno 11 5G', 3, 1, 1),
-('35879', 'PC Lenovo sff m79', 6899, 'ibl.com/lenovo-sff-m79', 743, 'Lenovo', 'gris', 'sff m79 AMD A8', 2, 1, 1),
-('61134', 'Pico 4 VR', 7999, 'ibl.com/pico-4-vr', 375, 'Pico', 'gris', 'Pico 4', 6, 1, 1),
-('79251', 'Samsung Galaxy S23', 22500, 'ibl.com/samsung-galaxy-s23', 583, 'Samsung', 'gris', 'Galaxy S23', 3, 1, 1),
-('41836', 'Samsung Galaxy Tab S9', 19000, 'ibl.com/samsung-galaxy-tab-s9', 843, 'Samsung', 'gris', 'Galaxy Tab S9', 4, 1, 1),
-('15972', 'Sony MDR-ZX110', 344, 'ibl.com/sony-mdr-zx110', 930, 'Sony', 'gris', 'MDR-ZX110', 7, 1, 1),
-('68394', 'Teclado Inalámbrico Xukinroy', 185, 'ibl.com/teclado-xukinroy', 753, 'Xukinroy', 'gris', 'Teclado Ultradelgado', 5, 1, 1),
-('15712', 'UGREEN Cable USB C', 184, 'ibl.com/ugreen-usb-c', 865, 'UGREEN', 'gris', 'Cable USB C', 6, 1, 1),
-('32948', 'Xiaomi 13 Lite', 12500, 'ibl.com/xiaomi-13-lite', 532, 'Xiaomi', 'gris', 'Xiaomi 13 Lite', 3, 1, 1),
-('76501', 'Xiaomi 9', 760, 'ibl.com/xiaomi-9', 765, 'Xiaomi', 'gris', 'Smartwatch Xiaomi 9', 2, 1, 1),
-('83174', 'Xiaomi Audífonos Buds 6 Play', 389, 'ibl.com/audifonos-xiaomi-buds-6', 765, 'Xiaomi', 'gris', 'Audífonos Buds 6', 7, 1, 1),
-('21649', 'Xiaomi Pad 6', 8000, 'ibl.com/xiaomi-pad-6', 876, 'Xiaomi', 'gris', 'Pad 6', 4, 1, 1),
-('19785', 'Xiaomi Poco F6 Pro', 9500, 'ibl.com/xiaomi-poco-f6', 654, 'Xiaomi', 'gris', 'Poco F6 Pro 5G', 3, 1, 1),
-('6234', 'Xiaomi Redmi Note 13 pro+', 6900, 'ibl.com/xiaomi-redmi-note-13', 543, 'Xiaomi', 'gris', 'Redmi Note 13 pro+', 3, 1, 1),
-('58179', 'Zaklu porta gafas VR', 309, 'ibl.com/zaklu-gafas-vr', 876, 'Zaklu', 'gris', 'Porta gafas VR', 6, 1, 1);
 
 
 
 
-INSERT INTO pedido (fecha, estado, total, usuario_id_usuario, usuario_tipo_de_usuario_id_tipo_de_usuario) VALUES
-('2024-11-19', 'pagado', '8700.00', 1, 1),  -- Acer Aspire 3
-('2024-11-20', 'pagado', '14000.00', 1, 1), -- Acer Chromebook Spin 713
-('2024-11-21', 'pagado', '6899.00', 1, 1),  -- All In One HP Intel Celeron-N100
-('2024-11-22', 'pagado', '4500.00', 1, 1),  -- Amazon Fire HD 10
-('2024-11-23', 'pagado', '8600.00', 1, 1),  -- ASUS VivoBook 5
-('2024-11-24', 'pagado', '69.30', 1, 1),     -- Audífonos Alámbricos JBLC50HIWHT
-('2024-11-25', 'pagado', '249.00', 1, 1),    -- Cable HDMI 10K 8K 4K 2 Metros
-('2024-11-26', 'pagado', '206.00', 1, 1),    -- Cámara Web HD 1080P
-('2024-11-27', 'pagado', '220.00', 1, 1),    -- Corsair K100 RBG
-('2024-11-28', 'pagado', '15500.00', 1, 1),  -- Dell Inspiron 14
-('2024-11-19', 'pagado', '10999.00', 1, 1),  -- Dell Inspiron 15
-('2024-11-20', 'pagado', '5799.00', 1, 1),   -- Dell OPTIPLEX 3070
-('2024-11-21', 'pagado', '8899.00', 1, 1),   -- Dell OPTIPLEX i5 8GB SSD
-('2024-11-22', 'pagado', '8399.00', 1, 1),   -- Dell Optiplex i5-420
-('2024-11-23', 'pagado', '5799.00', 1, 1),   -- Dell OPTIPLEX SFF 3080
-('2024-11-24', 'pagado', '2899.00', 1, 1),   -- Garmin Forerunner 165
-('2024-11-25', 'pagado', '19000.00', 1, 1),  -- Google Pixel 8
-('2024-11-26', 'pagado', '5999.00', 1, 1),   -- HP 800 G2 SFF-Core i5
-('2024-11-27', 'pagado', '6799.00', 1, 1),   -- HP i5 G420
-('2024-11-28', 'pagado', '4299.00', 1, 1),   -- HP i5 USFF 4 GB RAM
-('2024-11-29', 'pagado', '10999.00', 1, 1),  -- HP Pavilion x360
-('2024-11-30', 'pagado', '17000.00', 1, 1),  -- HP Victus 15
-('2024-12-01', 'pagado', '609.00', 1, 1),    -- Huawei Band 9
-('2024-12-02', 'pagado', '4500.00', 1, 1),   -- Infinix Note 40 pro
-('2024-12-03', 'pagado', '20999.00', 1, 1);   -- iPad Pro 11 M2
 
+-- INSERTAR PRODUCTOS
+INSERT INTO PRODUCTOS (nombre, descripcion, sku, marca, color, url, stock, precio, categorias_id) 
+VALUES
+('Acer Aspire 3', 'Laptop Acer Aspire 3 ideal para trabajo y estudio', '37592', 'ACER', 'gris', 'geekstore.com/acer-aspire-3', 400, 8700, 1),
+('Acer Chromebook Spin 713', 'Chromebook Acer Spin 713 con pantalla táctil y convertible', '81461', 'ACER', 'gris', 'geekstore.com/acer-chromebook-spin-713', 380, 14000, 1),
+('All In One HP Intel Celeron-N100', 'Computadora todo en uno HP con procesador Intel Celeron', '63084', 'HP', 'gris', 'geekstore.com/all-in-one-hp-celeron-n100', 200, 6899, 2),
+('Amazon Fire HD 10', 'Tablet Amazon Fire HD 10 con pantalla de 10 pulgadas', '29715', 'Amazon', 'gris', 'geekstore.com/amazon-fire-hd-10', 550, 4500, 3),
+('ASUS VivoBook 5', 'Laptop ASUS VivoBook 5 para trabajo y entretenimiento', '63184', 'ASUS', 'gris', 'geekstore.com/asus-vivobook-5', 300, 8600, 1),
+('Audífonos Alámbricos JBLC50HIWHT', 'Audífonos JBL con cable para sonido nítido', '95217', 'JBL', 'negro', 'geekstore.com/audifonos-jbl', 400, 69.30, 6),
+('Cable HDMI 10K 8K 4K 2 Metros', 'Cable HDMI 10K 8K 4K de 2 metros de longitud', '14376', 'STEREN', 'negro', 'geekstore.com/cable-hdmi-ultra', 350, 249, 7),
+('Cámara Web HD 1080P', 'Cámara web HD 1080P para videoconferencias', '52804', 'STEREN', 'negro', 'geekstore.com/camara-web-hd', 300, 206, 8),
+('Corsair K100 RBG', 'Teclado mecánico Corsair K100 con retroiluminación RGB', '16937', 'Corsair', 'negro', 'geekstore.com/corsair-k100', 330, 220, 9),
+('Dell Inspiron 14', 'Laptop Dell Inspiron 14 con pantalla de 14 pulgadas', '71528', 'DELL', 'gris', 'geekstore.com/dell-inspiron-14', 450, 15500, 1),
+('Dell Inspiron 15', 'Laptop Dell Inspiron 15 ideal para productividad', '31694', 'DELL', 'gris', 'geekstore.com/dell-inspiron-15', 450, 10999, 1),
+('Dell OPTIPLEX 3070', 'Computadora de escritorio Dell Optiplex 3070', '83295', 'DELL', 'gris', 'geekstore.com/dell-optiplex-3070', 400, 5799, 2),
+('Dell OPTIPLEX i5 8GB SSD', 'Computadora de escritorio Dell Optiplex i5 con 8GB de RAM y SSD', '41617', 'DELL', 'gris', 'geekstore.com/dell-optiplex-i5', 300, 8899, 2),
+('Dell Optiplex i5-420', 'Computadora de escritorio Dell Optiplex con procesador i5', '95321', 'DELL', 'gris', 'geekstore.com/dell-optiplex-i5-420', 290, 8399, 2),
+('Dell OPTIPLEX SFF 3080', 'Computadora de escritorio Dell Optiplex SFF 3080', '68417', 'DELL', 'gris', 'geekstore.com/dell-optiplex-sff', 335, 5799, 2),
+('Garmin Forerunner 165', 'Reloj deportivo Garmin Forerunner 165 con GPS y monitoreo de ritmo cardíaco', '37059', 'Garmin', 'negro', 'geekstore.com/garmin-forerunner-165', 654, 2899, 5),
+('Google Pixel 8', 'Smartphone Google Pixel 8 con cámara avanzada', '19468', 'Google', 'gris', 'geekstore.com/google-pixel-8', 120, 19000, 4),
+('HP 800 G2 SFF-Core i5', 'Computadora HP 800 G2 con procesador Core i5', '27651', 'HP', 'gris', 'geekstore.com/hp-800-g2', 460, 5999, 2),
+('HP i5 G420', 'Computadora HP i5 G420 con procesador Intel i5', '48131', 'HP', 'gris', 'geekstore.com/hp-g420', 550, 6799, 2),
+('HP i5 USFF 4 GB RAM', 'Computadora HP USFF con procesador i5 y 4GB de RAM', '72596', 'HP', 'gris', 'geekstore.com/hp-usff', 670, 4299, 2),
+('HP Pavilion x360', 'Laptop HP Pavilion x360 con pantalla táctil', '10674', 'HP', 'gris', 'geekstore.com/hp-pavilion-x360', 300, 10999, 1),
+('HP Victus 15', 'Laptop para juegos', '94382', 'HP', 'gris', 'geekstore.com/hp-victus-15', 250, 17000, 1),
+('Huawei Band 9', 'Pulsera inteligente', '52710', 'Huawei', 'negro', 'geekstore.com/huawei-band-9', 600, 609, 5),
+('Infinix Note 40 pro', 'Smartphone con cámara avanzada', '69843', 'Infinix', 'gris', 'geekstore.com/infinix-note-40', 345, 4500, 4),
+('iPad Pro 11 M2', 'Tablet con procesador avanzado', '10367', 'Apple', 'gris', 'geekstore.com/ipad-pro-11', 250, 20999, 3),
+('iPhone 15 Pro', 'Smartphone con cámara avanzada', '35948', 'Apple', 'gris', 'geekstore.com/iphone-15-pro', 250, 28000, 4),
+('Lenovo IdeaPad 3', 'Laptop para tareas diarias', '76211', 'Lenovo', 'gris', 'geekstore.com/lenovo-ideapad-3', 546, 9990, 1),
+('Lenovo sff m710S', 'Computadora de escritorio i5', '94853', 'Lenovo', 'gris', 'geekstore.com/lenovo-m710s', 765, 5799, 2),
+('Lenovo Tab P11 Pro', 'Tablet de alta resolución', '21617', 'Lenovo', 'gris', 'geekstore.com/lenovo-tab-p11', 876, 9500, 3),
+('Lenovo Tiny M720Q', 'Computadora compacta', '57384', 'Lenovo', 'gris', 'geekstore.com/lenovo-m720q', 345, 7499, 2),
+('Lenovo WORKSTATION P520', 'Estación de trabajo profesional', '62091', 'Lenovo', 'gris', 'geekstore.com/lenovo-workstation-p520', 654, 11399, 2),
+('MacBook Air M1', 'Laptop con chip M1', '13748', 'Apple', 'gris', 'geekstore.com/macbook-air-m1', 234, 17990, 3),
+('Motorola Edge 40', 'Smartphone con pantalla curva', '19561', 'Motorola', 'gris', 'geekstore.com/motorola-edge-40', 654, 15990, 4),
+('Motorola Edge 50', 'Smartphone con cámaras avanzadas', '24735', 'Motorola', 'gris', 'geekstore.com/motorola-edge-50', 765, 7500, 4),
+('Mouse inalámbrico Logitech', 'Mouse inalámbrico preciso', '86912', 'Logitech', 'gris', 'geekstore.com/mouse-logitech', 987, 58, 5),
+('Mouse inalámbrico vertical', 'Mouse vertical ergonómico', '45379', 'STEREN', 'gris', 'geekstore.com/mouse-vertical', 345, 125, 5),
+('Oppo Reno 11 5G', 'Smartphone con cámaras avanzadas', '42608', 'OPPO', 'gris', 'geekstore.com/oppo-reno-11', 654, 7000, 4),
+('PC Lenovo sff m79', 'Computadora de escritorio AMD A8', '35879', 'Lenovo', 'gris', 'geekstore.com/lenovo-sff-m79', 743, 6899, 2),
+('Pico 4 VR', 'Gafas de realidad virtual', '61134', 'Pico', 'gris', 'geekstore.com/pico-4-vr', 375, 7999, 10),
+('Samsung Galaxy S23', 'Smartphone con pantalla AMOLED', '79251', 'Samsung', 'gris', 'geekstore.com/samsung-galaxy-s23', 583, 22500, 4),
+('Samsung Galaxy Tab S9', 'Tablet con pantalla AMOLED', '41836', 'Samsung', 'gris', 'geekstore.com/samsung-galaxy-tab-s9', 843, 19000, 3),
+('Sony MDR-ZX110', 'Audífonos con sonido claro', '15972', 'Sony', 'gris', 'geekstore.com/sony-mdr-zx110', 930, 344, 6),
+('Teclado Inalámbrico Xukinroy', 'Teclado ultradelgado', '68394', 'Xukinroy', 'gris', 'geekstore.com/teclado-xukinroy', 753, 185, 9),
+('UGREEN Cable USB C', 'Cable USB C de calidad', '15712', 'UGREEN', 'gris', 'geekstore.com/ugreen-usb-c', 865, 184, 7),
+('Xiaomi 13 Lite', 'Smartphone con cámara de 50 MP', '32948', 'Xiaomi', 'gris', 'geekstore.com/xiaomi-13-lite', 532, 12500, 4),
+('Xiaomi 9', 'Smartwatch con funciones avanzadas', '76501', 'Xiaomi', 'gris', 'geekstore.com/xiaomi-9', 765, 760, 5),
+('Xiaomi Audífonos Buds 6 Play', 'Audífonos con sonido estéreo', '83174', 'Xiaomi', 'gris', 'geekstore.com/audifonos-xiaomi-buds-6', 765, 389, 6),
+('Xiaomi Pad 6', 'Tablet de alta resolución', '21649', 'Xiaomi', 'gris', 'geekstore.com/xiaomi-pad-6', 876, 8000, 3),
+('Xiaomi Poco F6 Pro', 'Smartphone 5G de alto rendimiento', '19785', 'Xiaomi', 'gris', 'geekstore.com/xiaomi-poco-f6', 654, 9500, 4),
+('Xiaomi Redmi Note 13 pro+', 'Smartphone con cámara de 108 MP', '6234', 'Xiaomi', 'gris', 'geekstore.com/xiaomi-redmi-note-13', 543, 6900, 4),
+('Zaklu porta gafas VR', 'Porta gafas VR seguro', '58179', 'Zaklu', 'gris', 'geekstore.com/zaklu-gafas-vr', 876, 309, 10);
 
--- SELECT * FROM pedido WHERE id_pedido = 1;
-INSERT INTO pago (fecha, descuento, metodo, iva, folio_factura, pedido_id_pedido) 
-VALUES ('2024-11-19','20','transferencia', '16','2315',1),
-('2024-11-20', '15', 'tarjeta de crédito', '16', '2316', 2), 
-('2024-11-21', '10', 'efectivo', '16', '2317', 3),  
-('2024-11-22', '25', 'transferencia', '16', '2318', 4), 
-('2024-11-23', '0', 'tarjeta de débito', '16', '2319', 5);
+-- Insertar pedidos
+INSERT INTO pedidos (fecha, estado, total, descripcion, usuario_id, pago_id)
+VALUES
+('2024-12-10', 'Pendiente', 9990, 'Compra de laptop Lenovo IdeaPad 3', 1, 1),
+('2024-12-11', 'Enviado', 15000, 'Compra de smartphone Samsung Galaxy S23 y accesorios', 2, 2),
+('2024-12-12', 'Entregado', 14000, 'Compra de computadora de escritorio Dell OPTIPLEX 3070', 3, 3),
+('2024-12-13', 'Pendiente', 4500, 'Compra de tablet Amazon Fire HD 10', 4, 1),
+('2024-12-14', 'Enviado', 22000, 'Compra de laptop HP Pavilion x360 y cable HDMI', 5, 2);
 
+INSERT INTO pago (fecha, metodo_pago, folio_factura) 
+VALUES
+('2024-12-10', 'Tarjeta de Crédito', 'FAC-001'),
+('2024-12-11', 'Transferencia Bancaria', 'FAC-002'),
+('2024-12-12', 'PayPal', 'FAC-003'),
+('2024-12-13', 'Efectivo', 'FAC-004'),
+('2024-12-14', 'Tarjeta de Débito', 'FAC-005');
 
-
+INSERT INTO productos_has_pedidos (pedidos_id, productos_id, productos_categorias_id)
+VALUES
+(1, 1, 1), -- Pedido de la laptop Lenovo IdeaPad 3
+(1, 3, 2), -- Pedido de la computadora todo en uno HP
+(2, 4, 3), -- Pedido de la tablet Amazon Fire HD 10
+(2, 5, 4), -- Pedido de la laptop HP Pavilion x360
+(3, 6, 5), -- Pedido de los audífonos JBL
+(3, 7, 6), -- Pedido del cable HDMI
+(4, 8, 7), -- Pedido de la cámara web HD
+(5, 9, 8), -- Pedido del teclado mecánico Corsair
+(5, 10, 9); 
