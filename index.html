@@ -30,19 +30,63 @@
             <h1 style="color: #8a2be2; margin-bottom: 20px; padding-bottom: 15px; font-size: 2.4rem;">"Bienvenidos a
                 GeekStation, donde la tecnología de calidad está al alcance de tod@s."</h1>
             <hr>
-            <img id="petlogo" src="./src/img/geekStationLogo.png" alt="geekStationLogo" style="width: 1200px; height: auto;">
-            <div><button id="petBtn" class="normal">¡Conócenos!</button>
-            </div>
+            <img src="./src/img/GeekBanner.png" alt="geekStationlogobanner" />
+                        <br><br><hr>
             <br><br><br>
             <hr><br>
-            <h1 class="index-h1">Articulos de temporada</h1>
+            <h1 class="index-h1">Te podría interesar</h1>
             <hr>
-            <!-- Widget de Instagram -->
+            <!-- Widget de Instagram 
             <div class="ig-widget">
                 <script src="https://cdn.lightwidget.com/widgets/lightwidget.js"></script><iframe
                     src="//lightwidget.com/widgets/af1e47d6c7ca5ed4afed532826131936.html" scrolling="no"
                     allowtransparency="true" class="lightwidget-widget"
-                    style="width:100%;border:0;overflow:hidden;"></iframe>
+                    style="width:100%;border:0;overflow:hidden;"></iframe> -->
+
+                    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                        </div>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="https://images.unsplash.com/photo-1724341039339-036842055cae?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="d-block w-100" alt="Primera imagen">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h3>Google Pixel 9a</h3>
+                                    <p>Nuevas filtraciones nos revelan el diseño que tendrá el smartphone</p>
+                                    <a href="https://culturageek.com.ar/google-pixel-9a-nuevas-filtraciones-nos-revelan-el-diseno-que-tendra-el-smartphone/" target="_blank" class="btn btn-primary">Leer más</a>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="https://images.unsplash.com/photo-1606220945770-b5b6c2c55bf1?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="d-block w-100" alt="Segunda imagen">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h3>Tutorial: ¿no querés ir al fonoaudiólogo? </h3>
+                                    <p>Cómo realizar una prueba de audición con los AirPods Pro 2</p>
+                                    <a href="https://culturageek.com.ar/tutorial-no-queres-ir-al-fonoaudiologo-como-realizar-una-prueba-de-audicion-con-los-airpods-pro-2/" target="_blank" class="btn btn-primary">Leer más</a>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="https://images.unsplash.com/photo-1612066473428-fb6833a0d855?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="d-block w-100" alt="Tercera imagen">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h3>Samsung retrasa su próximo headset de realidad virtual a 2025</h3>
+                                    <p>Parece que Samsung encontró dificultades para su regreso al VR/AR debido al retraso de su próximo lanzamiento..</p>
+                                    <a href="https://culturageek.com.ar/samsung-retrasa-su-proximo-headset-de-realidad-virtual-a-2025/" target="_blank" class="btn btn-primary">Leer más</a>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Anterior</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Siguiente</span>
+                        </button>
+                    </div>
+
+
+
                 <!-- Los productos se agregarán aquí mediante JavaScript -->
                 <section class="index-product-grid" id="index-product-grid">
                     <div id="index-product-container"></div>
@@ -51,9 +95,14 @@
                 <div class="index-card">
                     <div>
                         <hr><br>
-                        <img src="./src/img/GeekBanner.png" alt="geekStationlogobanner" />
+
+                        <img id="petlogo" src="./src/img/geekStationLogo.png" alt="geekStationLogo" style="width: 1200px; height: auto;">
+                        <div><button id="petBtn" class="normal">¡Conócenos!</button>
+                        </div>
+
+                        
                         <br><br><hr>
-                        <h3>¡🌐✨ Compromiso con la tecnología accesible y de calidad ✨🌐!
+                        <h3>¡✨🚀 Compromiso con la tecnología accesible y de calidad ✨🚀!
                         </h3>
                         <p>"Ofrecemos equipos nuevos y reacondicionados de alta calidad a precios accesibles,
                             contribuyendo a reducir la brecha digital y generando un impacto social positivo. Aspiramos

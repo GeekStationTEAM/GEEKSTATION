@@ -9,7 +9,7 @@
     /* Elimina cualquier fondo de todos los elementos globales */
 }
 
-/----- Estilos para body ------/
+/*----- Estilos para body ------/
 /* Estilo para el cuerpo con un gradiente animado */
 body {
     margin: 0;
@@ -135,6 +135,7 @@ form {
 .nav-link {
     color: #eaeaea !important;
     color: #eaeaea!important;
+    font-size: x-large;
 }
 
 .nav-link:hover {
@@ -144,10 +145,12 @@ form {
 .navbar-brand {
     font-family: 'Montserrat', sans-serif;
     color: #eaeaea !important;
+    font-size: xx-large;
 }
 
 .navbar-toggler {
     border-color: #eaeaea;
+    
 }
 
 .dropdown-menu {
@@ -278,10 +281,10 @@ footer a:hover {
 
 /* Inicia index */
 
-/Saltos de linea/
+/*Saltos de linea*/
 hr {
     margin: 0.2px 0;
-    border-top: 5px solid #ff007f;
+    border-top: 5px solid #eaeaea;
 }
 
 /* Boton configuracion global
@@ -559,7 +562,7 @@ h2 {
 .hover-image {
     width: 100%;
     /* Las imágenes se ajustan al ancho del contenedor */
-    height: 200px;
+    height: 380px;
     /* Altura fija para todas las imágenes */
     object-fit: cover;
     /* Asegura que las imágenes mantengan su proporción */
@@ -573,7 +576,7 @@ h2 {
 
 
 #Acerca {
-    background-color: #ffffff;
+    background-color: #fff;
     color: #ff007f;
     text-align: center;
 }
@@ -601,11 +604,11 @@ h2 {
     padding: 70px;
     margin: 20px;
     border-radius: 25px;
-    
+ 
 
 }
-
-.carta:first-child {
+/*Imagenes que ya no utilizamos*/
+/*.carta:first-child {
     background-image: linear-gradient(0deg,
             rgba(0, 0, 0, 0.6),
             rgba(0, 0, 0, 0.6)), url("./src/img/nosotros/mision.jpg");
@@ -621,7 +624,7 @@ h2 {
     background-image: linear-gradient(0deg,
             rgba(0, 0, 0, 0.7),
             rgba(0, 0, 0, 0.7)), url("./src/img/nosotros/valores.jpeg");
-}
+}*/
   
 /* -----CSS para contáctanos----*/
 
@@ -638,7 +641,7 @@ h2 {
     border: 1px solid #3d0066;
     border-radius: 8px;
     background-color: #3d0066;
-    color: #eaeaea;
+    color: #2c2c2c;
     transition: transform 0.3s ease;
     justify-content: center;
     max-width: 100%;
@@ -787,7 +790,7 @@ h2 {
     color: #ff007f;
     transition: transform 0.3s ease;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
     gap: 20px;
     padding: 20px;
 }
@@ -821,13 +824,13 @@ h2 {
 
 
 .product-card h2 {
-    font-size: 35px;
-    margin: 15px 0;
+    font-size: 26px;
+    margin: 15px 15;
 }
 
 .product-card p {
-    font-size: 30px;
-    margin-bottom: 15px;
+    font-size: 27px;
+    margin-bottom:5px;
     color: #eaeaea;
 }
 
@@ -837,8 +840,8 @@ h2 {
     /* background-color: #f68e56; */
     color: white;
     border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
+    padding: 5px;
+    border-radius: 10px;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
@@ -953,7 +956,7 @@ h2 {
 }
 
 /* -----CSS para productos (antes servicios)----- */
-/Productos/
+/*Productos*/
 * {
     margin: 0;
     padding: 0;
@@ -990,7 +993,7 @@ body {
     
 }
 
-/* Lista de servicios */
+/* Lista de servicios 
 .servicios {
     flex: 1 1 200px;
 }
@@ -1019,28 +1022,28 @@ body {
     background-color: #2c2c2c;
 }
 
-/* Detalle de cada servicio */
+/* Detalle de cada servicio 
 .detalle-servicio {
     flex: 2 1 600px;
 }
-
+/*
 .servicio-info {
     display: none;
-    /* Ocultar todos los detalles por defecto */
+    /* Ocultar todos los detalles por defecto 
     background-color: #2c2c2c;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
-}
-
+} */
+/*
 .servicio-imagen {
     width: 80%;
     height: auto;
     border-radius: 8px;
     margin-bottom: 20px;
 }
-
+*/
 /* Estilos para el precio (superior derecho) */
 .precio {
     font-size: 1.5em;
@@ -1075,7 +1078,6 @@ body {
 .servicio-info.active {
     display: block;
 }
-
 
 
 
@@ -1150,6 +1152,7 @@ h1 {
 
 h2 {
     color: #eaeaea;
+  ;
 
 }
 
