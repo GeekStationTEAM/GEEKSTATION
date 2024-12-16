@@ -100,14 +100,20 @@ body {
 
 /* Boton enviar cambiar color*/
 .btn-primary {
-    background-color: #0e4761; 
-    border-color: #20e5f6;     
-    color: #fff;               
+    background-color: #ffffff; 
+    border-color: #b6b6b6;
+    border-radius: 15px;
+    border-width: 3px;   
+    border-style: solid;                
+    color: #571186;  
 }
 
 .btn-primary:hover {
-    background-color: #092e3f; 
-    border-color: #0e5a61;
+    background-color: #ce16b3; 
+    border-color: #1c0c1d;
+    border-radius: 15px;
+    border-width: 3px;      
+    border-style: solid;
 }
 
 
@@ -115,13 +121,19 @@ body {
 
 .btn-secondary {
     background-color: #828384; 
-    border-color: #6b6c6c;     
+    border-color: #6b6c6c;  
+    border-radius: 15px;
+    border-width: 3px; 
+    border-style: solid;
     color: #fff;               
 }
 
 .btn-secondary:hover {
     background-color: #454545; 
     border-color: #262727;
+    border-radius: 15px;
+    border-width: 3px;
+    border-style: solid;
 }
 
 
