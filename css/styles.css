@@ -9,7 +9,7 @@
     /* Elimina cualquier fondo de todos los elementos globales */
 }
 
-/----- Estilos para body ------/
+/*----- Estilos para body ------/
 /* Estilo para el cuerpo con un gradiente animado */
 body {
     margin: 0;
@@ -278,10 +278,10 @@ footer a:hover {
 
 /* Inicia index */
 
-/Saltos de linea/
+/*Saltos de linea*/
 hr {
     margin: 0.2px 0;
-    border-top: 5px solid #ff007f;
+    border-top: 5px solid #eaeaea;
 }
 
 /* Boton configuracion global
@@ -838,7 +838,7 @@ h2 {
     color: white;
     border: none;
     padding: 10px 20px;
-    border-radius: 5px;
+    border-radius: 10px;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
@@ -953,7 +953,7 @@ h2 {
 }
 
 /* -----CSS para productos (antes servicios)----- */
-/Productos/
+/*Productos*/
 * {
     margin: 0;
     padding: 0;
@@ -1075,7 +1075,6 @@ body {
 .servicio-info.active {
     display: block;
 }
-
 
 
 
