@@ -8,3 +8,39 @@ body {
     font-family:"Montserrat", sans-serif;
     background-color: #b1b1b1; /*cambia el color del fondo de toda la pagina */
 }
+
+
+
+/* error.css */
+.error-page-container {
+    background-color: #f8f9fa;
+    padding: 20px;
+}
+
+.error-title {
+    font-size: 3rem;
+    color: #dc3545; /* Rojo intenso */
+}
+
+.error-description {
+    font-size: 1.2rem;
+    color: #6c757d; /* Gris */
+}
+
+.error-link {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    color: #fff;
+    background-color: #007bff; /* Azul */
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.error-link:hover {
+    background-color: #0056b3; /* Azul más oscuro */
+}
+
+.error-gif {
+    margin-top: 30px;
+}
