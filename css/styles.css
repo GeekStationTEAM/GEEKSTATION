@@ -17,18 +17,7 @@ body {
     padding: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(180deg,
-            #020f1f,
-            #112444,
-            #0e4761,
-            #0a2673,
-            #1b3c56,
-            #1d5a88e6,
-            #7b99b5,
-            #00c2ff,
-            #20e5f6,
-            #50c878,
-            #ffffff);
+    background: #eaeaea;
     background-size: 400% 400%;
     animation: gradientMove 15s ease infinite;
 }
@@ -64,7 +53,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: #020f1f;
+    background: #eaeaea;
     /* Fondo base */
     overflow: hidden;
     z-index: -1;
@@ -74,9 +63,9 @@ body {
 /* Estilo de las estrellas */
 .star {
     position: absolute;
-    width: 2px;
-    height: 2px;
-    background-color: white;
+    width: 15px;
+    height: 15px;
+    background-color: #ff007f;
     border-radius: 50%;
     animation: moveStars 5s linear infinite;
 }
@@ -105,7 +94,8 @@ body {
     padding: 20px;
     box-sizing: border-box;
     text-align: center;
-    color: #000a63;
+    color:#eaeaea;
+    font-size:xx-large;
 }
 
 form {
@@ -117,12 +107,12 @@ form {
 }
 
 .p_pag {
-    color: #00c2ff;
+    color: #eaeaea;
     text-align: justify;
 }
 
 .p_contactanos {
-    color: #00c2ff;
+    color: #fff;
     text-align: center;
 }
 
@@ -132,69 +122,69 @@ form {
 
 /* -----Estilos para la Navbar o menú -----*/
 .navbar {
-    background-color: #000a63;
-    background-color: #020f1f !important;
+    background-color: #3d0066;
+    background-color: #3d0066 !important;
 
 }
 
 .navbar-brand img {
-    width: 40px;
-    height: 40px;
+    width: 90px;
+    height: 90px;
 }
 
 .nav-link {
-    color: #ffffff !important;
-    color: #20e5f6 !important;
+    color: #eaeaea !important;
+    color: #eaeaea!important;
 }
 
 .nav-link:hover {
-    color: #00c2ff !important;
+    color: #ff007f !important;
 }
 
 .navbar-brand {
-    font-family: 'Codec Pro', sans-serif;
-    color: #20e5f6 !important;
+    font-family: 'Montserrat', sans-serif;
+    color: #eaeaea !important;
 }
 
 .navbar-toggler {
-    border-color: #20e5f6;
+    border-color: #eaeaea;
 }
 
 .dropdown-menu {
-    background-color: #282120;
+    background-color: #8a2be2;
 }
 
 .dropdown-item {
-    color: #ffffff;
+    color: #eaeaea;
 }
 
 .dropdown-item:hover {
-    background-color: #00c2ff;
-    color: #020f1f;
+    background-color: #ff007f;
+    color: #3d0066;
 }
 
 
 /* -----Estilos para el footer -----*/
 footer {
-    background-color: #000a63;
+    background-color:#3d0066;
 }
 
 /Footer RS/
 .social-icon {
     display: inline-flexbox;
-    width: 40px;
-    height: 40px;
-    background-color: #00c2ff;
+    width: 60px;
+    height: 60px;
+    background-color: #ff007f;
     border-radius: 50%;
     text-align: center;
-    line-height: 40px;
+    line-height: 60px;
     /* Para centrar el icono */
     transition: background-color 0.3s;
 }
 
 .social-icon i {
     color: white;
-    font-size: 20px;
+    font-size: 27px;
     /* Ajusta el tamaño del ícono */
 }
 
@@ -204,17 +194,17 @@ footer {
 
 /* Colores específicos para cada red social */
 .facebook:hover {
-    background-color: #020f1f;
+    background-color: #3d0066;
 }
 
 .instagram:hover {
-    background-color: #020f1f;
+    background-color: #3d0066;
 }
 
 .footer {
-    background-color: #020f1f;
+    background-color: #3d0066;
     color: white;
-    padding: 20px 0;
+    padding: 50px 0;
     text-align: center;
     position: relative;
     bottom: 0;
@@ -273,7 +263,7 @@ footer a:hover {
 
 /* Efecto hover para los íconos */
 .social-icon:hover {
-    background-color: #4CAF50;
+    background-color: #000a63;
     /* Color verde cuando el icono es hover */
 }
 
@@ -291,21 +281,20 @@ footer a:hover {
 /Saltos de linea/
 hr {
     margin: 0.2px 0;
-    border-top: 5px solid #00c2ff;
+    border-top: 5px solid #ff007f;
 }
 
-<<<<<<< HEAD
 /* Boton configuracion global
 - Boton banner */
 button.normal {
     font-size: 30px;
     font-weight: 600;
     padding: 20px 20px;
-    color: #ffffff;
+    color: #eaeaea;
     background-color: transparent;
     border-radius: 70px;
     cursor: pointer;
-    border: #0077B5 solid;
+    border: #3d0066 solid;
     outline: none;
     transition: 0.3s;
 }
@@ -313,7 +302,7 @@ button.normal {
 /* Boton dentro de heroe - redirecciona "acerca de" */
 #conocenosBtn {
     padding: 10px 60px 10px 65px;
-    color: #ffffff;
+    color: #eaeaea;
     background-color: transparent;
     border-radius: 25px;
     cursor: pointer; 
@@ -326,8 +315,8 @@ button.normal {
 
 /* Sub class hover/Efectos en el botón*/
 #conocenosBtn button:hover {
-    background-color: #20e4f67a;
-    color: white;
+    background-color: #ff007f;
+    color: #eaeaea;
 }
 
 /* Configuracion mensaje de bienvenida */
@@ -365,8 +354,6 @@ button.normal {
 }
 */
 
-=======
->>>>>>> master
 /* Contenedor de la imagen */
 #petlogo {
     width: 100%;               
@@ -376,7 +363,7 @@ button.normal {
     justify-content: center;    
     align-items: center;        
     margin: 0 auto;             
-    background-color: #ffffff;     
+    background-color: #eaeaea;     
 }
 
 #petlogo img {
@@ -388,7 +375,7 @@ button.normal {
 /* Boton Conocenos */
 button.normal {
     padding: 10px 60px 10px 65px;
-    color: #ffffff;
+    color: #3d0066;
     background-color: transparent;
     border-radius: 25px;
     cursor: pointer;
@@ -401,19 +388,19 @@ button.normal {
 }
 
 button.normal:hover {
-    background-color: #20e4f6da;
+    background-color: #ff007f;
     color: #1b3c56;
     transform: scale(1.1);
-    box-shadow: 0 5px 15px #00c2ff;
-    border-color: #50c878;
+    box-shadow: 0 5px 15px #ff007f;
+    border-color: #8a2be2;
 }
 
 .index-h1 {
-    color: white;
+    color: #fff;
     margin-bottom: 20px;
     padding-bottom: 15px;
     font-size: 4rem;
-    background-color: #0077B5; 
+    background-color: #8a2be2; 
     padding: 20px;  
     border-radius: 10px; 
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); 
@@ -422,10 +409,10 @@ button.normal:hover {
 
 /* Diseño de la tarjeta de producto */
 .index-product-grid {
-    border: 2px solid #00c2ff;
+    border: 2px solid #ff007f;
     border-radius: 20px;
-    background-color: #050c2e;
-    color: #20e5f6;
+    background-color: #3d0066;
+    color: #ff007f;
     transition: transform 0.3s ease;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -436,14 +423,14 @@ button.normal:hover {
 .index-product-card {
     display: grid;
     grid-template-rows: 1fr auto;
-    background-color: #050c2e;
+    background-color: #8a2be2;
     padding: 20px;
     border-radius: 20px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
     transition: transform 0.3s ease;
     border-style: groove;
-    border-color: #0077B5;
+    border-color: #eaeaea;
 }
 
 .index-product-card img {
@@ -465,14 +452,14 @@ button.normal:hover {
 .index-product-card p {
     font-size: 18px;
     margin-bottom: 15px;
-    color: #50c878;
+    color: #ff007f;
     grid-row: 3; 
     margin-top: auto;
 }
 
 .index-product-card button {
-    background-color: #4CAF50;
-    border-color: #b1fffc;
+    background-color: #3d0066;
+    border-color: #ff007f;
     color: white;
     border: none;
     padding: 10px 10px;
@@ -484,7 +471,7 @@ button.normal:hover {
 }
 
 .index-product-card button:hover {
-    background-color: #20e5f6;
+    background-color: #ff007f;
 }
 
 .index-product-card:hover {
@@ -507,14 +494,14 @@ button.normal:hover {
 .index-card h3 {
     font-size: 40px;
     margin: 20px 0;
-    color: white;
+    color: #2c2c2c;
     text-align: center; 
 }
 
 .index-card p {
     font-size: 30px;
     margin: 20px 0;
-    color: white;
+    color: #2c2c2c;
     text-align: justify; 
 }
 
@@ -527,7 +514,7 @@ h1 {
 }
 
 h2 {
-    color: #b1fffc;
+    color: #ff007f;
 }
 
 .form-label {
@@ -542,15 +529,15 @@ h2 {
 }
 
 .container_login {
-    background-color: #495057;
+    background-color: #3d0066;
     /* background: rgb(255, 255, 255); */
     padding: 50px;
     border-radius: 12px;
-    box-shadow: 4px 4px 10px rgb(62, 175, 240);
+    box-shadow: 4px 4px 10px rgb(240, 62, 204);
 }
 
 .container {
-    background: #010523;
+    background: #3d0066;
     padding: 30px;
     border-radius: 12px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -587,7 +574,7 @@ h2 {
 
 #Acerca {
     background-color: #ffffff;
-    color: #00eeffdc;
+    color: #ff007f;
     text-align: center;
 }
 
@@ -598,11 +585,11 @@ h2 {
 #Acerca h1 {
     margin-top: 0;
     font-size: 3.2em;
-    color: #000a63;
+    color: #3d0066;
 }
 
 #Acerca p {
-    color: #ffffff;
+    color: #2c2c2c;
     font-size: 15px;
     font-weight: lighter;
     text-align: left;
@@ -614,6 +601,7 @@ h2 {
     padding: 70px;
     margin: 20px;
     border-radius: 25px;
+    
 
 }
 
@@ -638,19 +626,19 @@ h2 {
 /* -----CSS para contáctanos----*/
 
 #contactanos {
-    color: #ffffff;
+    color: #ff007f;
 }
 
 #dejanosDatos {
-    color: #20e5f6;
+    color: #ff007f;
 }
 
 .card_contactanos {
     min-height: 350px;
-    border: 1px solid #00c2ff;
+    border: 1px solid #3d0066;
     border-radius: 8px;
-    background-color: #050c2e;
-    color: #20e5f6;
+    background-color: #3d0066;
+    color: #eaeaea;
     transition: transform 0.3s ease;
     justify-content: center;
     max-width: 100%;
@@ -666,20 +654,20 @@ h2 {
     padding: 20px;*/
 }
 #formContact {
-    background: rgba(2, 8, 45, 0.8);
+    background: rgba(227, 40, 187, 0.8);
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 10px rgba(224, 75, 192, 0.155);
     text-align: center;
-    text-decoration-color: #20e5f6;
-    border-color: #20e5f6;
+    text-decoration-color: #eaeaea;
+    border-color: #eaeaea;
     margin-left: 50px;
     align-items: center;
     justify-content: center;
 }
 
 .form-label {
-    color: #00c2ff
+    color: #eaeaea
 }
 
 .form-control {
@@ -697,7 +685,7 @@ h2 {
 
 .form-check-label {
     margin-right: 190px;
-    color: #20e5f6;
+    color: #ff007f;
 }
 
 #mapaIBL iframe {
@@ -763,14 +751,14 @@ h2 {
 */
 
 /* -----CSS para el panel de productos----- */
-/Productos/
+/*Productos/
 /* Estilo para la sección de filtros */
 .filters {
-    border: 1px solid #00c2ff;
+    border: 1px solid #ff007f;
     border-radius: 8px;
-    background-color: #050c2e;
+    background-color: #3d0066;
     /* background-color:#ffffff; */
-    color: #20e5f6;
+    color: #ff007f;
     padding: 20px;
     margin-bottom: 20px;
     text-align: center;
@@ -793,10 +781,10 @@ h2 {
 
 /* Estilo para la cuadrícula de productos */
 .product-grid {
-    border: 1px solid #00c2ff;
+    border: 1px solid #eaeaea;
     border-radius: 8px;
-    background-color: #050c2e;
-    color: #20e5f6;
+    background-color: #eaeaea;
+    color: #ff007f;
     transition: transform 0.3s ease;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -806,7 +794,7 @@ h2 {
 
 /* Diseño de la tarjeta de producto */
 .product-card {
-    background-color: #050c2e;
+    background-color: #8a2be2;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -833,19 +821,19 @@ h2 {
 
 
 .product-card h2 {
-    font-size: 18px;
+    font-size: 35px;
     margin: 15px 0;
 }
 
 .product-card p {
-    font-size: 16px;
+    font-size: 30px;
     margin-bottom: 15px;
-    color: #20e5f6;
+    color: #eaeaea;
 }
 
 .product-card button {
-    background-color: #0a0063;
-    border-color: #20e5f6;
+    background-color: #3d0066;
+    border-color: #8a2be2;
     /* background-color: #f68e56; */
     color: white;
     border: none;
@@ -856,7 +844,7 @@ h2 {
 }
 
 .product-card button:hover {
-    background-color: #20e5f6;
+    background-color: #ff007f;
 }
 
 .product-card:hover {
@@ -870,18 +858,18 @@ h2 {
 .table {
     border-collapse: separate;
     border-spacing: 0 10px;
-    color: #20e5f6;
+    color: #ff007f;
 }
 
 .table th,
 .table td {
     vertical-align: middle;
-    color: #20e5f6;
+    color: #ff007f;
 }
 
 .thead-dark th {
-    background-color: #000a63;
-    color: #20e5f6;
+    background-color: #3d0066;
+    color: #ff007f;
 }
 
 /* Botones */
@@ -891,12 +879,12 @@ h2 {
 }
 
 .btn-primary {
-    background-color: #00c2ff;
+    background-color: #ff007f;
     border: none;
 }
 
 .btn-primary:hover {
-    background-color: #000a63;
+    background-color: #3d0066;
 }
 
 .btn-danger {
@@ -910,10 +898,10 @@ h2 {
 
 /* Tarjetas de productos */
 .card {
-    border: 1px solid #00c2ff;
+    border: 1px solid #8a2be2;
     border-radius: 8px;
-    background-color: #050c2e;
-    color: #20e5f6;
+    background-color: #3d0066;
+    color: #eaeaea;
     transition: transform 0.3s ease;
     justify-content: center;
 }
@@ -921,10 +909,10 @@ h2 {
 .card_contact {
     min-height: 350px;
     ;
-    border: 1px solid #00c2ff;
+    border: 1px solid #2c2c2c;
     border-radius: 8px;
     background-color: #050c2e;
-    color: #20e5f6;
+    color: #ff007f;
     transition: transform 0.3s ease;
     justify-content: center;
     max-width: 650px;
@@ -943,25 +931,25 @@ h2 {
 }
 
 .card-title {
-    color: #00c2ff;
+    color: #eaeaea;
     font-family: 'Codec Pro', sans-serif;
     font-weight: bold;
 }
 
 .card-text {
-    color: #20e5f6;
+    color: #eaeaea;
     font-family: 'Codec Pro', sans-serif;
 }
 
 #vaciar-carrito {
     font-size: 14px;
-    background-color: #ff3b3b;
+    background-color: #8a2be2;
     border: none;
     color: #282120;
 }
 
 #vaciar-carrito:hover {
-    background-color: #c82333;
+    background-color: #ff007f;
 }
 
 /* -----CSS para productos (antes servicios)----- */
@@ -989,7 +977,7 @@ body {
 .productos h2 {
     font-size: 2rem;
     margin-bottom: 20px;
-    color: #00c2ff;
+    color: #eaeaea;
 }
 
 /* Contenedor principal */
@@ -999,6 +987,7 @@ body {
     flex-wrap: wrap;
     gap: 20px;
     padding: 20px;
+    
 }
 
 /* Lista de servicios */
@@ -1017,8 +1006,8 @@ body {
 
 .servicio-btn {
     padding: 12px;
-    background-color: #00c2ff;
-    color: white;
+    background-color: #2c2c2c;
+    color: #2c2c2c;
     border: none;
     cursor: pointer;
     font-size: 18px;
@@ -1027,7 +1016,7 @@ body {
 }
 
 .servicio-btn:hover {
-    background-color: #20e5f6;
+    background-color: #2c2c2c;
 }
 
 /* Detalle de cada servicio */
@@ -1038,7 +1027,7 @@ body {
 .servicio-info {
     display: none;
     /* Ocultar todos los detalles por defecto */
-    background-color: white;
+    background-color: #2c2c2c;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
@@ -1069,7 +1058,7 @@ body {
 /* Estilo para el botón */
 .agregar-carrito {
     padding: 12px;
-    background-color: #00c2ff;
+    background-color: #ff007f;
     color: white;
     border: none;
     cursor: pointer;
@@ -1079,7 +1068,7 @@ body {
 }
 
 .agregar-carrito:hover {
-    background-color: #20e5f6;
+    background-color: #ff007f;
 }
 
 /* Mostrar servicio activo */
@@ -1155,18 +1144,18 @@ body {
 
 
 h1 {
-    color: #00c2ff;
+    color: #ff007f;
     font-weight: bold;
 }
 
 h2 {
-    color: #00c2ff;
+    color: #eaeaea;
 
 }
 
 button {
-    background-color: #000a63;
-    border-color: #20e5f6;
+    background-color: #3d0066;
+    border-color: #ff007f;
 }
 
 button:hover {
