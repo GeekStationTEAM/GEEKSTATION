@@ -28,6 +28,21 @@ private final UserRepository userRepository;
 		return this.userRepository.save(newUser);
 	}
 	
-	
+	//METODO PARA BORRAR USUARIO
+	public void deleteUser(Long id) {
+		this.userRepository.deleteById(id);
+	}
 
+	//METODO PARA INSERTAR USUARIO
+	public UserEntity updateUser (UserEntity user, Long id) {
+		return this.userRepository.findById (id)
+				.map(userField -> {
+					userField.setUsername(user.getUsername());
+					return this.userRepository.save(userField);
+					
+				})
+		.orElseThrow(()-> new UserNotFoundException (id));
+		
+	}
+	
 }
