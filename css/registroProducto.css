@@ -34,7 +34,7 @@ body {
 
 .form-label {
     font-weight: bold;
-    color: #ffe1f5; /* Color claro para el nombre de las etiquetas como, nombre descripcion, precio, cantidad*/
+    color: #460f34; /* Color claro para el nombre de las etiquetas como, nombre descripcion, precio, cantidad*/
 }
 
 /* Contenedor del formulario */
