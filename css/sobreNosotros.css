@@ -16,7 +16,7 @@ p{  font-size: 1.0em;}
 body {
     font-family: 'Codec Pro, sans-serif';
     background-color: #020f1f;
-    color: #ffffff;
+    color: #2c2c2c;
 }
 /*HEADER*/ 
 
@@ -34,12 +34,9 @@ body {
     color: #ffffff !important;
     color: #20e5f6 !important;
 }
-<<<<<<< HEAD
-=======
 *{
     box-sizing: border-box;    
 }
->>>>>>> 77945b0 (Cambios hechos :))
 
 .nav-link:hover {
     color: #00c2ff !important;
@@ -162,9 +159,6 @@ body {
     }
 }
 
-<<<<<<< HEAD
-=======
 h1{ font-size: 3.0em;}
 h3{ font-size: 2.0em;}
 p{  font-size: 1.0em;}
->>>>>>> 77945b0 (Cambios hechos :))
