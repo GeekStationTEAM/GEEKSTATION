@@ -404,6 +404,22 @@ button.normal {
     background-color: #eaeaea;     
 }
 
+.imagen-flotante {
+    animation: float 2.3s ease-in-out infinite;
+  }
+  
+  @keyframes float {
+    0% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-60px);
+    }
+    100% {
+      transform: translateY(0px);
+    }
+  }
+
 #petlogo img {
     width: 100%;                
     height: auto;               
