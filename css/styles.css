@@ -22,7 +22,7 @@ body {
     animation: gradientMove 15s ease infinite;
 }
 
-@keyframes gradientMove {
+/*@keyframes gradientMove {
     0% {
         background-position: 0% 50%;
     }
@@ -34,7 +34,7 @@ body {
     100% {
         background-position: 0% 50%;
     }
-}
+} */
 
 
 
@@ -60,7 +60,7 @@ body {
     /* Ubicar detrás del contenido principal */
 }
 
-/* Estilo de las estrellas */
+/* Estilo de las estrellas 
 .star {
     position: absolute;
     width: 15px;
@@ -68,9 +68,9 @@ body {
     background-color: #ff007f;
     border-radius: 50%;
     animation: moveStars 5s linear infinite;
-}
+} */
 
-/* Animación de movimiento de estrellas */
+/* Animación de movimiento de estrellas 
 @keyframes moveStars {
     from {
         transform: translateY(0);
@@ -80,7 +80,7 @@ body {
         transform: translateY(100vh);
     }
 }
-
+*/
 /* Contenido principal */
 .content {
     position: relative;
@@ -95,7 +95,7 @@ body {
     box-sizing: border-box;
     text-align: center;
     color:#eaeaea;
-    font-size:xx-large;
+    font-size:larger;
 }
 
 form {
@@ -117,7 +117,11 @@ form {
 }
 
 .modal_title {
-    color: #000a63;
+    color: #ff007f;
+}
+#modalContent{
+    color: #2c2c2c;
+    text-align: center;
 }
 
 /* -----Estilos para la Navbar o menú -----*/
@@ -128,14 +132,14 @@ form {
 }
 
 .navbar-brand img {
-    width: 90px;
-    height: 90px;
+    width: 100px;
+    height: 100px;
 }
 
 .nav-link {
     color: #eaeaea !important;
     color: #eaeaea!important;
-    font-size: x-large;
+    font-size: larger;
 }
 
 .nav-link:hover {
@@ -145,7 +149,7 @@ form {
 .navbar-brand {
     font-family: 'Montserrat', sans-serif;
     color: #eaeaea !important;
-    font-size: xx-large;
+    font-size: larger;
 }
 
 .navbar-toggler {
@@ -172,15 +176,15 @@ footer {
     background-color:#3d0066;
 }
 
-/Footer RS/
+/*Footer RS*/
 .social-icon {
     display: inline-flexbox;
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     background-color: #ff007f;
     border-radius: 50%;
     text-align: center;
-    line-height: 60px;
+    line-height: 50px;
     /* Para centrar el icono */
     transition: background-color 0.3s;
 }
@@ -322,7 +326,25 @@ button.normal {
     color: #eaeaea;
 }
 
-/* Configuracion mensaje de bienvenida */
+ /* Contenedor responsivo */
+ .video-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* Proporción 16:9 (altura/anchura) */
+    height: 0;
+    overflow: hidden;
+}
+
+/* Video responsivo */
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+/* Configuracion mensaje de bienvenida 
 #heroe {
     background-image: url("/src/img/productos/img_Jluis/petlogo.jpg");
     width: 100%;
@@ -335,7 +357,7 @@ button.normal {
     flex-direction: column;
     align-items: center; 
     justify-content: center;
-}
+} */
 
 /*
 #heroe h4 {
@@ -562,7 +584,7 @@ h2 {
 .hover-image {
     width: 100%;
     /* Las imágenes se ajustan al ancho del contenedor */
-    height: 380px;
+    height: 200px;
     /* Altura fija para todas las imágenes */
     object-fit: cover;
     /* Asegura que las imágenes mantengan su proporción */
@@ -645,9 +667,9 @@ h2 {
     transition: transform 0.3s ease;
     justify-content: center;
     max-width: 100%;
-    margin: 20px auto;
+    margin: 0 auto;
     display:inline-block;
-    margin-left: 0px;
+    margin-left: 20px;
     padding: 20px;
 
    
@@ -683,7 +705,7 @@ h2 {
 }
 
 #terms {
-    padding-left: 9px;
+    padding-left: 1px;
 }
 
 .form-check-label {
@@ -698,8 +720,8 @@ h2 {
     display: grid;
     object-position: right;
     position: relative;
-    width: 860px;
-    height: 400px;
+    width: 660px;
+    height: 350px;
     border: 0;
 }
 
@@ -824,13 +846,13 @@ h2 {
 
 
 .product-card h2 {
-    font-size: 26px;
-    margin: 15px 15;
+    font-size: 18px;
+    margin: 15px 0;
 }
 
 .product-card p {
-    font-size: 27px;
-    margin-bottom:5px;
+    font-size: 16px;
+    margin-bottom:15px;
     color: #eaeaea;
 }
 
@@ -840,8 +862,8 @@ h2 {
     /* background-color: #f68e56; */
     color: white;
     border: none;
-    padding: 5px;
-    border-radius: 10px;
+    padding: 10px 20px;
+    border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
@@ -1129,7 +1151,7 @@ body {
     }
 
     .servicio-btn {
-        font-size: 16px;
+        font-size: 10px;
     }
 
     .servicio-info {

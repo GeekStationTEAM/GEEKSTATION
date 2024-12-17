@@ -18,6 +18,8 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- CSS Personalizado lineas index 289 a 448 aprox.   -->
     <link rel="stylesheet" href="./css/styles.css">
+
+
 </head>
 <!-- header/navbar cargado desde una funcion, animacion estrellas,. -->
 <body class="bg-light d-flex flex-column min-vh-100">
@@ -25,14 +27,14 @@
     <main class="flex-grow-1">
         <div class="background-animation"></div>
         <div class="content">
-            <hr><br><br>
-            <!-- Decidi usar CSS inline para la manipulacion exacta de esta etiqueta -->
-            <h1 style="color: #8a2be2; margin-bottom: 20px; padding-bottom: 15px; font-size: 2.4rem;">"Bienvenidos a
-                GeekStation, donde la tecnología de calidad está al alcance de tod@s."</h1>
-            <hr>
-            <img src="./src/img/GeekBanner.png" alt="geekStationlogobanner" />
+            <hr><br>
+            <img src="./src/img/GeekBanner.png" alt="geekStationlogobanner" style="width: inherit; height: auto;"/>
                         <br><br><hr>
-            <br><br><br>
+                        <!-- Decidi usar CSS inline para la manipulacion exacta de esta etiqueta -->
+            <!--<h1 style="color: #8a2be2; margin-bottom: 20px; padding-bottom: 15px; font-size: 2.4rem;">"Bienvenidos a
+                GeekStation, donde la tecnología de calidad está al alcance de tod@s."</h1> -->
+             <!--<hr>
+            <br><br><br> -->
             <hr><br>
             <h1 class="index-h1">Te podría interesar</h1>
             <hr>
@@ -43,38 +45,53 @@
                     allowtransparency="true" class="lightwidget-widget"
                     style="width:100%;border:0;overflow:hidden;"></iframe> -->
 
-                    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" style="max-width: 100%; margin: auto; overflow: hidden;">
+                        <!-- Indicadores -->
                         <div class="carousel-indicators">
                             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
                             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
                             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
                         </div>
+                    
+                        <!-- Contenido -->
                         <div class="carousel-inner">
+                            <!-- Item 1 -->
                             <div class="carousel-item active">
-                                <img src="https://images.unsplash.com/photo-1724341039339-036842055cae?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="d-block w-100" alt="Primera imagen">
-                                <div class="carousel-caption d-none d-md-block">
-                                    <h3>Google Pixel 9a</h3>
-                                    <p>Nuevas filtraciones nos revelan el diseño que tendrá el smartphone</p>
-                                    <a href="https://culturageek.com.ar/google-pixel-9a-nuevas-filtraciones-nos-revelan-el-diseno-que-tendra-el-smartphone/" target="_blank" class="btn btn-primary">Leer más</a>
+                                <img src="https://images.unsplash.com/photo-1724341039339-036842055cae?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
+                                     class="d-block w-100" alt="Primera imagen" 
+                                     style="object-fit: cover; height: 400px;">
+                                <div class="carousel-caption d-none d-md-block" style="background: rgba(0,0,0,0.5); border-radius: 8px; padding: 10px;">
+                                    <h3 style="font-size: 1.5rem;">Google Pixel 9a</h3>
+                                    <p style="font-size: 1rem;">Nuevas filtraciones nos revelan el diseño que tendrá el smartphone</p>
+                                    <a href="https://culturageek.com.ar/google-pixel-9a-nuevas-filtraciones-nos-revelan-el-diseno-que-tendra-el-smartphone/" 
+                                       target="_blank" class="btn btn-primary" style="font-size: 0.9rem;">Leer más</a>
                                 </div>
                             </div>
+                            <!-- Item 2 -->
                             <div class="carousel-item">
-                                <img src="https://images.unsplash.com/photo-1606220945770-b5b6c2c55bf1?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="d-block w-100" alt="Segunda imagen">
-                                <div class="carousel-caption d-none d-md-block">
-                                    <h3>Tutorial: ¿no querés ir al fonoaudiólogo? </h3>
-                                    <p>Cómo realizar una prueba de audición con los AirPods Pro 2</p>
-                                    <a href="https://culturageek.com.ar/tutorial-no-queres-ir-al-fonoaudiologo-como-realizar-una-prueba-de-audicion-con-los-airpods-pro-2/" target="_blank" class="btn btn-primary">Leer más</a>
+                                <img src="https://images.pexels.com/photos/3780681/pexels-photo-3780681.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" 
+                                     class="d-block w-100" style="object-fit: cover; height: 400px;">
+                                <div class="carousel-caption d-none d-md-block" style="background: rgba(0,0,0,0.5); border-radius: 8px; padding: 10px;">
+                                    <h3 style="font-size: 1.5rem;">Tutorial: ¿no querés ir al fonoaudiólogo?</h3>
+                                    <p style="font-size: 1rem;">Cómo realizar una prueba de audición con los AirPods Pro 2</p>
+                                    <a href="https://culturageek.com.ar/tutorial-no-queres-ir-al-fonoaudiologo-como-realizar-una-prueba-de-audicion-con-los-airpods-pro-2/" 
+                                       target="_blank" class="btn btn-primary" style="font-size: 0.9rem;">Leer más</a>
                                 </div>
                             </div>
+                            <!-- Item 3 -->
                             <div class="carousel-item">
-                                <img src="https://images.unsplash.com/photo-1612066473428-fb6833a0d855?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="d-block w-100" alt="Tercera imagen">
-                                <div class="carousel-caption d-none d-md-block">
-                                    <h3>Samsung retrasa su próximo headset de realidad virtual a 2025</h3>
-                                    <p>Parece que Samsung encontró dificultades para su regreso al VR/AR debido al retraso de su próximo lanzamiento..</p>
-                                    <a href="https://culturageek.com.ar/samsung-retrasa-su-proximo-headset-de-realidad-virtual-a-2025/" target="_blank" class="btn btn-primary">Leer más</a>
+                                <img src="https://images.unsplash.com/photo-1612066473428-fb6833a0d855?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
+                                     class="d-block w-100" alt="Tercera imagen" style="object-fit: cover; height: 400px;">
+                                <div class="carousel-caption d-none d-md-block" style="background: rgba(0,0,0,0.5); border-radius: 8px; padding: 10px;">
+                                    <h3 style="font-size: 1.5rem;">Samsung retrasa su próximo headset de realidad virtual a 2025</h3>
+                                    <p style="font-size: 1rem;">Parece que Samsung encontró dificultades para su regreso al VR/AR.</p>
+                                    <a href="https://culturageek.com.ar/samsung-retrasa-su-proximo-headset-de-realidad-virtual-a-2025/" 
+                                       target="_blank" class="btn btn-primary" style="font-size: 0.9rem;">Leer más</a>
                                 </div>
                             </div>
                         </div>
+                    
+                        <!-- Controles -->
                         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                             <span class="visually-hidden">Anterior</span>
@@ -84,10 +101,23 @@
                             <span class="visually-hidden">Siguiente</span>
                         </button>
                     </div>
+<hr><br>
+<hr><br>
+                    <h1>CHAT GPT: QUÉ ES, CÓMO FUNCIONA y HASTA DÓNDE PUEDE LLEGAR</h1>
+                    <hr><br>
+                    <div class="video-container">
+                        <!-- Inserta aquí el enlace del video de YouTube -->
+                        <iframe 
+                        src="https://www.youtube.com/embed/NiDat36IyF8" 
+                            title="Video de YouTube" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
 
 
 
-                <!-- Los productos se agregarán aquí mediante JavaScript -->
+                <!-- Los productos se agregarán aquí mediante JavaScript 
                 <section class="index-product-grid" id="index-product-grid">
                     <div id="index-product-container"></div>
                 </section>
@@ -102,23 +132,15 @@
 
                         
                         <br><br><hr>
-                        <h3>¡✨🚀 Compromiso con la tecnología accesible y de calidad ✨🚀!
-                        </h3>
-                        <p>"Ofrecemos equipos nuevos y reacondicionados de alta calidad a precios accesibles,
-                            contribuyendo a reducir la brecha digital y generando un impacto social positivo. Aspiramos
-                            a convertirnos en una plataforma líder en la región para la compra y venta de tecnología
-                            garantizada, siendo un referente de sostenibilidad y accesibilidad. Nos comprometemos con
-                            nuestros clientes a brindarles la mejor experiencia mediante excelencia, integridad, trabajo
-                            en equipo, innovación y orientación al cliente, buscando siempre ofrecer soluciones y
-                            servicios de calidad."
-                        </p>
+                        <h3>👾 GeekStation te acompaña siempre 👾</h3>
+                        
                         <a href="acerca_nosotros.html"></a>
                         <hr>
                     </div>
                 </div>
                 <div id="banner" class="section-m1">
                     <div class="banner-content">
-                        <button id="btnQuieroSaberMas" class="normal">Únete a la comunidad</button>
+                        <button id="btnQuieroSaberMas" class="normal">Regístrate</button>
                     </div>
                 </div>
                 <!-- <br><br><br><hr><br> -->
