@@ -39,7 +39,7 @@ function toggleError(input, isValid) {
 }
 
 // Configuración inicial de EmailJS
-emailjs.init("gmiJc0yrehImR_piP"); // Sustituye "TU_PUBLIC_KEY" con la clave pública correcta (estaba esta) oKasd2SLlI5zI9Ks_
+emailjs.init("q5o1jW7nNwNXY0G80"); // Sustituye "TU_PUBLIC_KEY" 
 
 // Evento del botón de enviar
 document.getElementById("enviarMensaje").addEventListener("click", function (event) {
@@ -80,7 +80,7 @@ document.getElementById("enviarMensaje").addEventListener("click", function (eve
     };
 
     // Envío del correo con EmailJS
-    emailjs.send("service_nucnjfv", "template_mm46z4u", datosFormulario).then(
+    emailjs.send("service_syga6ks", "template_mm46z4a", datosFormulario).then(
       function () {
         // Si el envío es exitoso
         showModal("¡Gracias por contactarnos! Tu mensaje ha sido enviado.", 5000); // Mostrar por 5 segundos
