@@ -95,7 +95,7 @@ body {
     box-sizing: border-box;
     text-align: center;
     color:#eaeaea;
-    font-size:xx-large;
+    font-size:larger;
 }
 
 form {
@@ -294,7 +294,7 @@ hr {
 /* Boton configuracion global
 - Boton banner */
 button.normal {
-    font-size: 20px;
+    font-size: 30px;
     font-weight: 600;
     padding: 20px 20px;
     color: #eaeaea;
@@ -649,9 +649,9 @@ h2 {
     transition: transform 0.3s ease;
     justify-content: center;
     max-width: 100%;
-    margin: 20px auto;
+    margin: 0 auto;
     display:inline-block;
-    margin-left: 0px;
+    margin-left: 20px;
     padding: 20px;
 
    
@@ -687,7 +687,7 @@ h2 {
 }
 
 #terms {
-    padding-left: 9px;
+    padding-left: 1px;
 }
 
 .form-check-label {
@@ -702,8 +702,8 @@ h2 {
     display: grid;
     object-position: right;
     position: relative;
-    width: 860px;
-    height: 400px;
+    width: 660px;
+    height: 350px;
     border: 0;
 }
 
@@ -795,14 +795,14 @@ h2 {
     transition: transform 0.3s ease;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-    gap: 10px;
-    padding: 10px;
+    gap: 20px;
+    padding: 20px;
 }
 
 /* Diseño de la tarjeta de producto */
 .product-card {
     background-color: #8a2be2;
-    padding: 15px;
+    padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
@@ -828,13 +828,13 @@ h2 {
 
 
 .product-card h2 {
-    font-size: 26px;
-    margin: 15px 15;
+    font-size: 18px;
+    margin: 15px 0;
 }
 
 .product-card p {
-    font-size: 26px;
-    margin-bottom:5px;
+    font-size: 16px;
+    margin-bottom:15px;
     color: #eaeaea;
 }
 
@@ -844,8 +844,8 @@ h2 {
     /* background-color: #f68e56; */
     color: white;
     border: none;
-    padding: 5px;
-    border-radius: 9px;
+    padding: 10px 20px;
+    border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
@@ -1133,7 +1133,7 @@ body {
     }
 
     .servicio-btn {
-        font-size: 16px;
+        font-size: 10px;
     }
 
     .servicio-info {
