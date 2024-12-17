@@ -393,6 +393,21 @@ button.normal {
 */
 
 /* Contenedor de la imagen */
+.imagen-animada-principal {
+    right: -100%;
+    animation: slide-in-left 2.5s ease-in-out ;
+  }
+  
+  @keyframes slide-in-left {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+  
+
 #petlogo {
     width: 100%;               
     max-width: 600px;           
