@@ -211,7 +211,7 @@ VALUES
 ('2024-12-12', 'pendiente', 3000, 'Pedido de cables y webcams', 5);
 
 
-INSERT INTO pago (id_pago, fecha, metodo_pago, monto, folio_factura, pedidos_id_pedidos) VALUES
+INSERT INTO pago (fecha, metodo_pago, monto, folio_factura, pedidos_id_pedidos) VALUES
 ('2024-12-15', 'Tarjeta de crédito', 15000, 'FAC001', 1),
 ('2024-12-16', 'Transferencia bancaria', 4500, 'FAC002', 2),
 ('2024-12-17', 'PayPal', 6900, 'FAC003', 3),
