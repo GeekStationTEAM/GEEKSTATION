@@ -326,16 +326,29 @@ button.normal {
     color: #eaeaea;
 }
 
- /* Contenedor responsivo */
- .video-container {
-    position: relative;
-    width: 100%;
-    padding-bottom: 56.25%; /* Proporción 16:9 (altura/anchura) */
-    height: 0;
-    overflow: hidden;
+  /* Contenedor principal para centrar el video */
+  .video-wrapper {
+    display: flex; /* Usa flexbox para centrar */
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente si se necesita */
+    width: 100%; /* Ocupa todo el ancho disponible */
+    padding: 20px 0; /* Espaciado superior e inferior */
 }
 
-/* Video responsivo */
+/* Contenedor responsivo */
+.video-container {
+    position: relative;
+    width: 80%; /* Limita el ancho máximo del video (ajusta según prefieras) */
+    max-width: 800px; /* Define un límite máximo para pantallas grandes */
+    padding-bottom: 45%; /* Relación de aspecto 16:9 ajustada */
+    height: 0;
+    overflow: hidden;
+    background-color: #000; /* Opcional: fondo negro para mayor contraste */
+    border-radius: 8px; /* Opcional: bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Opcional: sombra sutil */
+}
+
+/* Video dentro del contenedor */
 .video-container iframe {
     position: absolute;
     top: 0;
@@ -424,14 +437,16 @@ button.normal:hover {
     color: #fff;
     margin-bottom: 20px;
     padding-bottom: 15px;
-    font-size: 4rem;
+    font-size: 2rem;
     background-color: #8a2be2; 
     padding: 20px;  
     border-radius: 10px; 
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); 
     text-align: center;  
 }
-
+.video-h1{
+    font-size:larger;
+}
 /* Diseño de la tarjeta de producto */
 .index-product-grid {
     border: 2px solid #ff007f;
@@ -469,13 +484,13 @@ button.normal:hover {
 }
 
 .index-product-card h2 {
-    font-size: 20px;
+    font-size: 8px;
     margin: 15px 0;
     color: #fff9e1;
 }
 
 .index-product-card p {
-    font-size: 18px;
+    font-size: 10px;
     margin-bottom: 15px;
     color: #ff007f;
     grid-row: 3; 
