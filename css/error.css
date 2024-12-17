@@ -1,10 +1,38 @@
-/* Para mantener el navbar con su color original (fondo oscuro) */
-.navbar {
-    background-color: #020f1f;  /* Fondo oscuro para el navbar */
+/* Cambiar el fondo y el color de texto solo para la página de error */
+.error-page-container {
+    background-color: #e7e7e8; /* Fondo claro */
+    color: #0a0b0c; /* Texto oscuro */
+    padding: 20px;
 }
 
+/* Personaliza el título */
+.error-page-container .error-title {
+    font-size: 4rem; /* Aumenta el tamaño del título */
+    color: #460f4d; /* Morado */
+}
 
-body {
-    font-family:"Montserrat", sans-serif;
-    background-color: #b1b1b1; /*cambia el color del fondo de toda la pagina */
+/* Personaliza la descripción */
+.error-page-container .error-description {
+    font-size: 1.5rem; /* Aumenta el tamaño de la descripción */
+    color: #0a0b0c; /* Gris oscuro */
+}
+
+/* Personaliza el enlace */
+.error-page-container .error-link {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    color: #fff;
+    background-color: #e30fc3; /* Rosa */
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.error-page-container .error-link:hover {
+    background-color: #5c0a5b; /* Rosa más oscuro */
+}
+
+/* personalizar el margen del GIF */
+.error-page-container .error-gif {
+    margin-top: 30px;
 }

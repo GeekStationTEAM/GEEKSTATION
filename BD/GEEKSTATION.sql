@@ -6,9 +6,46 @@ USE `GEEKSTATION` ;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `GEEKSTATION`.`categorias` (
   `id_categorias` INT NOT NULL AUTO_INCREMENT,
-  `nombre` VARCHAR(80) NOT NULL,
-  `descripcion` VARCHAR(80) NOT NULL,
+  `nombre` VARCHAR(80) NULL,
+  `descripcion` VARCHAR(80) NULL,
   PRIMARY KEY (`id_categorias`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4;
+
+-- -----------------------------------------------------
+-- Table `GEEKSTATION`.`usuario`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `GEEKSTATION`.`usuario` (
+  `id_usuario` INT NOT NULL AUTO_INCREMENT,
+  `nombre` VARCHAR(80) NOT NULL,
+  `apellido` VARCHAR(80) NULL,
+  `email` VARCHAR(80) NOT NULL,
+  `password` VARCHAR(80) NOT NULL,
+  `telefono` VARCHAR(80) NOT NULL,
+  `delegacion` VARCHAR(45) NULL,
+  `RFC` VARCHAR(13) NULL,
+  PRIMARY KEY (`id_usuario`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4;
+
+
+-- -----------------------------------------------------
+-- Table `GEEKSTATION`.`pedidos`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `GEEKSTATION`.`pedidos` (
+  `id_pedidos` INT NOT NULL AUTO_INCREMENT,
+  `fecha` DATE NOT NULL,
+  `estado` VARCHAR(45) NULL,
+  `total` DOUBLE NOT NULL,
+  `descripcion` TEXT NULL,
+  `usuario_id_usuario` INT NOT NULL,
+  PRIMARY KEY (`id_pedidos`),
+  INDEX `fk_pedidos_usuario1_idx` (`usuario_id_usuario` ASC) VISIBLE,
+  CONSTRAINT `fk_pedidos_usuario1`
+    FOREIGN KEY (`usuario_id_usuario`)
+    REFERENCES `GEEKSTATION`.`usuario` (`id_usuario`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4;
 
@@ -20,67 +57,14 @@ CREATE TABLE IF NOT EXISTS `GEEKSTATION`.`pago` (
   `id_pago` INT NOT NULL AUTO_INCREMENT,
   `fecha` DATE NOT NULL,
   `metodo_pago` VARCHAR(45) NOT NULL,
-  `folio_factura` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`id_pago`))
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4;
-
-
--- -----------------------------------------------------
--- Table `GEEKSTATION`.`tipo_usuario`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `GEEKSTATION`.`tipo_usuario` (
-  `id_tipo` INT NOT NULL AUTO_INCREMENT,
-  `nombre_tipo` VARCHAR(45) NOT NULL,
-  `descripción_tipo` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`id_tipo`))
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `GEEKSTATION`.`usuario`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `GEEKSTATION`.`usuario` (
-  `id_usuario` INT NOT NULL AUTO_INCREMENT,
-  `nombre` VARCHAR(80) NOT NULL,
-  `apellido` VARCHAR(80) NOT NULL,
-  `email` VARCHAR(80) NOT NULL,
-  `password` VARCHAR(80) NOT NULL,
-  `telefono` VARCHAR(80) NOT NULL,
-  `delegacion` VARCHAR(45) NOT NULL,
-  `RFC` VARCHAR(13) NOT NULL,
-  `id_tipo_usuario` INT NOT NULL,
-  PRIMARY KEY (`id_usuario`),
-  INDEX `fk_usuario_tipo_usuario1_idx` (`id_tipo_usuario` ASC) VISIBLE,
-  CONSTRAINT `fk_usuario_tipo_usuario1`
-    FOREIGN KEY (`id_tipo_usuario`)
-    REFERENCES `GEEKSTATION`.`tipo_usuario` (`id_tipo`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4;
-
-
--- -----------------------------------------------------
--- Table `GEEKSTATION`.`pedidos`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `GEEKSTATION`.`pedidos` (
-  `id_pedidos` INT NOT NULL  AUTO_INCREMENT,
-  `fecha` DATE NOT NULL,
-  `estado` VARCHAR(45) NOT NULL,
-  `total` DOUBLE NOT NULL,
-  `descripcion` TEXT NOT NULL,
-  `usuario_id` INT NOT NULL,
-  `pago_id` INT NOT NULL,
-  PRIMARY KEY (`id_pedidos`),
-  INDEX `fk_pedidos_usuario1_idx` (`usuario_id` ASC) VISIBLE,
-  INDEX `fk_pedidos_pago1_idx` (`pago_id` ASC) VISIBLE,
-  CONSTRAINT `fk_pedidos_usuario1`
-    FOREIGN KEY (`usuario_id`)
-    REFERENCES `GEEKSTATION`.`usuario` (`id_usuario`),
-  CONSTRAINT `fk_pedidos_pago1`
-    FOREIGN KEY (`pago_id`)
-    REFERENCES `GEEKSTATION`.`pago` (`id_pago`)
+  `monto` VARCHAR(45) NULL,
+  `folio_factura` VARCHAR(45) NULL,
+  `pedidos_id_pedidos` INT NOT NULL,
+  PRIMARY KEY (`id_pago`, `pedidos_id_pedidos`),
+  INDEX `fk_pago_pedidos1_idx` (`pedidos_id_pedidos` ASC) VISIBLE,
+  CONSTRAINT `fk_pago_pedidos1`
+    FOREIGN KEY (`pedidos_id_pedidos`)
+    REFERENCES `GEEKSTATION`.`pedidos` (`id_pedidos`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
@@ -91,20 +75,20 @@ DEFAULT CHARACTER SET = utf8mb4;
 -- Table `GEEKSTATION`.`productos`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `GEEKSTATION`.`productos` (
-  `id_producto` INT NOT NULL,
-  `nombre` VARCHAR(80) NOT NULL,
-  `descripcion` TEXT NOT NULL,
-  `sku` VARCHAR(45) NOT NULL,
-  `marca` VARCHAR(45) NOT NULL,
-  `color` VARCHAR(45) NOT NULL,
-  `url` VARCHAR(45) NOT NULL,
-  `stock` INT NOT NULL,
-  `precio` DOUBLE NOT NULL,
-  `categorias_id` INT NOT NULL,
-  PRIMARY KEY (`id_producto`, `categorias_id`),
-  INDEX `fk_productos_categorias1_idx` (`categorias_id` ASC) VISIBLE,
+  `id_producto` INT NOT NULL AUTO_INCREMENT,
+  `nombre` VARCHAR(80) NULL,
+  `descripcion` TEXT NULL,
+  `sku` VARCHAR(45) NULL,
+  `marca` VARCHAR(45) NULL,
+  `color` VARCHAR(45) NULL,
+  `url` VARCHAR(45) NULL,
+  `stock` INT NULL,
+  `precio` DOUBLE NULL,
+  `categorias_id_categorias` INT NOT NULL,
+  PRIMARY KEY (`id_producto`, `categorias_id_categorias`),
+  INDEX `fk_productos_categorias1_idx` (`categorias_id_categorias` ASC) VISIBLE,
   CONSTRAINT `fk_productos_categorias1`
-    FOREIGN KEY (`categorias_id`)
+    FOREIGN KEY (`categorias_id_categorias`)
     REFERENCES `GEEKSTATION`.`categorias` (`id_categorias`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
@@ -116,39 +100,34 @@ DEFAULT CHARACTER SET = utf8mb4;
 -- Table `GEEKSTATION`.`productos_has_pedidos`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `GEEKSTATION`.`productos_has_pedidos` (
-  `pedidos_id` INT NOT NULL,
-  `productos_id` INT NOT NULL,
-  `productos_categorias_id` INT NOT NULL,
-  PRIMARY KEY (`pedidos_id`, `productos_id`, `productos_categorias_id`),
-  INDEX `fk_productos_has_pedidos_pedidos1_idx` (`pedidos_id` ASC) VISIBLE,
-  INDEX `fk_productos_has_pedidos_productos1_idx` (`productos_id` ASC, `productos_categorias_id` ASC) VISIBLE,
-  CONSTRAINT `fk_productos_has_pedidos_pedidos1`
-    FOREIGN KEY (`pedidos_id`)
-    REFERENCES `GEEKSTATION`.`pedidos` (`id_pedidos`),
+  `productos_id_producto` INT NOT NULL,
+  `productos_categorias_id_categorias` INT NOT NULL,
+  `pedidos_id_pedidos` INT NOT NULL,
+  PRIMARY KEY (`productos_id_producto`, `productos_categorias_id_categorias`, `pedidos_id_pedidos`),
+  INDEX `fk_productos_has_pedidos_pedidos1_idx` (`pedidos_id_pedidos` ASC) VISIBLE,
+  INDEX `fk_productos_has_pedidos_productos1_idx` (`productos_id_producto` ASC, `productos_categorias_id_categorias` ASC) VISIBLE,
   CONSTRAINT `fk_productos_has_pedidos_productos1`
-    FOREIGN KEY (`productos_id` , `productos_categorias_id`)
-    REFERENCES `GEEKSTATION`.`productos` (`id_producto` , `categorias_id`)
+    FOREIGN KEY (`productos_id_producto` , `productos_categorias_id_categorias`)
+    REFERENCES `GEEKSTATION`.`productos` (`id_producto` , `categorias_id_categorias`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_productos_has_pedidos_pedidos1`
+    FOREIGN KEY (`pedidos_id_pedidos`)
+    REFERENCES `GEEKSTATION`.`pedidos` (`id_pedidos`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4;
 
 
-
--- Insertar tipos de usuario
-INSERT INTO tipo_usuario (nombre_tipo, descripción_tipo)
-VALUES
- ('administrador', 'puede hacer modificaciones en la página'),
- ('cliente', 'realiza compras en la página');
- 
  -- Insertar usuarios
-INSERT INTO usuario (nombre, apellido, email, password, telefono, delegacion, RFC, id_tipo_usuario) 
+INSERT INTO usuario (nombre, apellido, email, password, telefono, delegacion, RFC ) 
 VALUES 
-('Ana', 'Ortiz', 'anaortizl@gmail.com', 'adminadmin', '5573892234', 'Benito Juarez', 'KJCD900914H2A', 1),
-('Maria Fernanda', 'Lopez', 'mlopezmartinez@gmail.com', 'securepass123', '5551234567', 'Cuernavaca', 'LOMA921203XJ2', 2),
-('Juan Carlos', 'Ramirez', 'jcramirezhernandez@gmail.com', 'mypassword2024', '3337894561', 'Guadalajara', 'RAHC880315KI9', 2),
-('Ana Isabel', 'Perez', 'anaperezsantos@gmail.com', 'qwerty7890', '2295671234', 'Veracruz', 'PESA970521ZK5', 2),
-('Roberto', 'Gonzalez', 'rgonzalezmorales@gmail.com', 'helloWorld01', '9984567890', 'Cancun', 'GOMO860730LZ7', 2);
+('Ana', 'Ortiz', 'anaortizl@gmail.com', 'adminadmin', '5573892234', 'Benito Juarez', 'KJCD900914H2A'),
+('Maria Fernanda', 'Lopez', 'mlopezmartinez@gmail.com', 'securepass123', '5551234567', 'Cuernavaca', 'LOMA921203XJ2'),
+('Juan Carlos', 'Ramirez', 'jcramirezhernandez@gmail.com', 'mypassword2024', '3337894561', 'Guadalajara', 'RAHC880315KI9'),
+('Ana Isabel', 'Perez', 'anaperezsantos@gmail.com', 'qwerty7890', '2295671234', 'Veracruz', 'PESA970521ZK5'),
+('Roberto', 'Gonzalez', 'rgonzalezmorales@gmail.com', 'helloWorld01', '9984567890', 'Cancun', 'GOMO860730LZ7');
 
 
  
@@ -167,13 +146,8 @@ VALUES
 ('Mouse', 'Dispositivos de entrada para computadora'),
 ('VR', 'Gafas de realidad virtual');
 
-
-
-
-
-
 -- INSERTAR PRODUCTOS
-INSERT INTO PRODUCTOS (nombre, descripcion, sku, marca, color, url, stock, precio, categorias_id) 
+INSERT INTO productos (nombre, descripcion, sku, marca, color, url, stock, precio, categorias_id_categorias) 
 VALUES
 ('Acer Aspire 3', 'Laptop Acer Aspire 3 ideal para trabajo y estudio', '37592', 'ACER', 'gris', 'geekstore.com/acer-aspire-3', 400, 8700, 1),
 ('Acer Chromebook Spin 713', 'Chromebook Acer Spin 713 con pantalla táctil y convertible', '81461', 'ACER', 'gris', 'geekstore.com/acer-chromebook-spin-713', 380, 14000, 1),
@@ -227,31 +201,24 @@ VALUES
 ('Xiaomi Redmi Note 13 pro+', 'Smartphone con cámara de 108 MP', '6234', 'Xiaomi', 'gris', 'geekstore.com/xiaomi-redmi-note-13', 543, 6900, 4),
 ('Zaklu porta gafas VR', 'Porta gafas VR seguro', '58179', 'Zaklu', 'gris', 'geekstore.com/zaklu-gafas-vr', 876, 309, 10);
 
--- Insertar pedidos
-INSERT INTO pedidos (fecha, estado, total, descripcion, usuario_id, pago_id)
-VALUES
-('2024-12-10', 'Pendiente', 9990, 'Compra de laptop Lenovo IdeaPad 3', 1, 1),
-('2024-12-11', 'Enviado', 15000, 'Compra de smartphone Samsung Galaxy S23 y accesorios', 2, 2),
-('2024-12-12', 'Entregado', 14000, 'Compra de computadora de escritorio Dell OPTIPLEX 3070', 3, 3),
-('2024-12-13', 'Pendiente', 4500, 'Compra de tablet Amazon Fire HD 10', 4, 1),
-('2024-12-14', 'Enviado', 22000, 'Compra de laptop HP Pavilion x360 y cable HDMI', 5, 2);
 
-INSERT INTO pago (fecha, metodo_pago, folio_factura) 
-VALUES
-('2024-12-10', 'Tarjeta de Crédito', 'FAC-001'),
-('2024-12-11', 'Transferencia Bancaria', 'FAC-002'),
-('2024-12-12', 'PayPal', 'FAC-003'),
-('2024-12-13', 'Efectivo', 'FAC-004'),
-('2024-12-14', 'Tarjeta de Débito', 'FAC-005');
+INSERT INTO pedidos (fecha, estado, total, descripcion, usuario_id_usuario)
+VALUES 
+('2024-12-15', 'completado', 15000, 'Pedido de laptops y accesorios', 1),
+('2024-12-15', 'en proceso', 8000, 'Pedido de computadoras y audífonos', 2),
+('2024-12-14', 'cancelado', 4500, 'Pedido de tablets', 3),
+('2024-12-13', 'completado', 12000, 'Pedido de productos varios', 4),
+('2024-12-12', 'pendiente', 3000, 'Pedido de cables y webcams', 5);
 
-INSERT INTO productos_has_pedidos (pedidos_id, productos_id, productos_categorias_id)
-VALUES
-(1, 1, 1), -- Pedido de la laptop Lenovo IdeaPad 3
-(1, 3, 2), -- Pedido de la computadora todo en uno HP
-(2, 4, 3), -- Pedido de la tablet Amazon Fire HD 10
-(2, 5, 4), -- Pedido de la laptop HP Pavilion x360
-(3, 6, 5), -- Pedido de los audífonos JBL
-(3, 7, 6), -- Pedido del cable HDMI
-(4, 8, 7), -- Pedido de la cámara web HD
-(5, 9, 8), -- Pedido del teclado mecánico Corsair
-(5, 10, 9); 
+
+INSERT INTO pago (id_pago, fecha, metodo_pago, monto, folio_factura, pedidos_id_pedidos) VALUES
+('2024-12-15', 'Tarjeta de crédito', 15000, 'FAC001', 1),
+('2024-12-16', 'Transferencia bancaria', 4500, 'FAC002', 2),
+('2024-12-17', 'PayPal', 6900, 'FAC003', 3),
+('2024-12-18', 'Efectivo', 12500, 'FAC004', 4),
+('2024-12-19', 'Tarjeta de débito', 8000, 'FAC005', 5);
+
+
+
+
+

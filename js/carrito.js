@@ -83,6 +83,8 @@ const addToCart = (id) => {
     }
 
     renderCart();
+    saveCartToLocalStorage(); // Actualiza el Local Storage
+
 };
 
 // Función para manejar las acciones del carrito (incrementar/disminuir cantidad)
@@ -105,12 +107,22 @@ const cartActions = (e) => {
     }
 
     renderCart();
+    saveCartToLocalStorage(); // Actualiza el Local Storage
+
+};
+
+
+//FUNCION PARA GUARDAR LOS PRODUCTOS DEL CARRITO EN EL LOCALSTORAGE
+const saveCartToLocalStorage = () => {
+    localStorage.setItem('cart', JSON.stringify(cart));
 };
 
 // Vaciar el carrito
 const emptyCart = () => {
     cart = [];
     renderCart();
+    saveCartToLocalStorage(); // Limpia el Local Storage
+
 };
 
 // Eventos

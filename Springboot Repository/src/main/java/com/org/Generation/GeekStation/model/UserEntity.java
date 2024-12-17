@@ -21,32 +21,47 @@ public class UserEntity {
 	@Column(name = "id_usuario")
 	private Long id;
 	
-	@Column(name = "nombre", length = 30, nullable = false, unique = true)
+	@Column(name = "nombre", length = 30, nullable = false)
 	private String nombre;
 	
-	@Column(name = "apellido", length = 30, nullable = false, unique = true)
+	@Column(name = "apellido", length = 30, nullable = false)
 	private String apellido;
 	
 	@Column(name = "email", length = 80, nullable = false, unique = true)
 	private String email;
 	
-	@Column(name = "password", length = 60, nullable = false, unique = false)
+	@Column(name = "password", length = 60, nullable = false)
 	private String password;
 	
-	@Column(name = "telefono", length = 60, nullable = false, unique = false)
+	@Column(name = "telefono", length = 60, nullable = false)
 	private String telefono;
 	
-	@Column(name = "delegacion", length = 60, nullable = false, unique = false)
+	@Column(name = "delegacion", length = 60, nullable = false)
 	private String delegacion;
 	
-	@Column(name = "RFC", length = 60, nullable = false, unique = false)
-	private String RFC;
+	@Column(name = "RFC", length = 60, nullable = false, unique = true)
+	private String rFC;
 	
 	
 	
 	//JPA me pide tener dentro de mi Entity un constructor vacio
 	public UserEntity() {
 		
+	}
+
+
+
+	public UserEntity(Long id, String nombre, String apellido, String email, String password, String telefono,
+			String delegacion, String rFC) {
+		super();
+		this.id = id;
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.email = email;
+		this.password = password;
+		this.telefono = telefono;
+		this.delegacion = delegacion;
+		this.rFC = rFC;
 	}
 
 
@@ -135,14 +150,14 @@ public class UserEntity {
 
 
 
-	public String getRFC() {
-		return RFC;
+	public String getrFC() {
+		return rFC;
 	}
 
 
 
-	public void setRFC(String rFC) {
-		RFC = rFC;
+	public void setrFC(String rFC) {
+		this.rFC = rFC;
 	}
 
 
@@ -150,7 +165,7 @@ public class UserEntity {
 	@Override
 	public String toString() {
 		return "UserEntity [id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", email=" + email
-				+ ", password=" + password + ", telefono=" + telefono + ", delegacion=" + delegacion + ", RFC=" + RFC
+				+ ", password=" + password + ", telefono=" + telefono + ", delegacion=" + delegacion + ", rFC=" + rFC
 				+ "]";
 	}
 
@@ -158,7 +173,7 @@ public class UserEntity {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(RFC, apellido, delegacion, email, id, nombre, password, telefono);
+		return Objects.hash(apellido, delegacion, email, id, nombre, password, rFC, telefono);
 	}
 
 
@@ -172,13 +187,13 @@ public class UserEntity {
 		if (getClass() != obj.getClass())
 			return false;
 		UserEntity other = (UserEntity) obj;
-		return Objects.equals(RFC, other.RFC) && Objects.equals(apellido, other.apellido)
-				&& Objects.equals(delegacion, other.delegacion) && Objects.equals(email, other.email)
-				&& Objects.equals(id, other.id) && Objects.equals(nombre, other.nombre)
-				&& Objects.equals(password, other.password) && Objects.equals(telefono, other.telefono);
+		return Objects.equals(apellido, other.apellido) && Objects.equals(delegacion, other.delegacion)
+				&& Objects.equals(email, other.email) && Objects.equals(id, other.id)
+				&& Objects.equals(nombre, other.nombre) && Objects.equals(password, other.password)
+				&& Objects.equals(rFC, other.rFC) && Objects.equals(telefono, other.telefono);
 	}
-	
-	
+
+
 	
 	
 	
