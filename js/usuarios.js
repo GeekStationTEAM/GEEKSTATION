@@ -85,6 +85,32 @@ function handleRegister(event) {
     telefono,
   };
 
+  /*Estamos trabajando en esto
+  const mostrarInfo = document.getElementById('submit');
+
+  mostrarInfo.addEventListener('click', () => {
+      const correoElectronico = document.getElementById('email').value;
+      const url = `http://localhost:8080/api/v1/users/email/${correoElectronico}`;
+  
+      // fetch para método get
+      fetch(url)
+          .then(response => response.json())
+          .then(data => {
+              userInfo.innerHTML = `
+                  <h3>Información del usuario:</h3>
+                  <p>Correo electrónico: ${data.email}</p>
+                  <p>Contraseña: ${data.password}</p>
+              `
+          })
+          .catch(error => {
+              userInfo.innerHTML = `
+                  Usuario no encontrado
+              `
+              console.error(error)
+          })
+  })
+*/
+    
   // Obtener usuarios existentes en LocalStorage
   const users = JSON.parse(localStorage.getItem("users")) || [];
 
