@@ -9,7 +9,11 @@ const btnQuieroSaberMas = document.getElementById('btnQuieroSaberMas');
 btnQuieroSaberMas.addEventListener('click', () => {
     window.location.href = './registro.html'; 
 });
-
+// Boton "Quiero saber mas" - Redirige a "productos.html"
+const btnEror = document.getElementById('btnError');
+btnError.addEventListener('click', () => {
+    window.location.href = './Error.html'; 
+});
 // Lista de productos con sus categorías
 const products = [
     { id: 1, name: "Laptop Acer Aspire 3", category: "Laptops", price: "$8,700 MXN", img:"./src/img/productos/img_Andy/ACER2.jpg" },
