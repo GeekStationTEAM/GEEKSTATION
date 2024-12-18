@@ -6,9 +6,7 @@ const products = [
   { id: 5, name: "Lenovo IdeaPad 3", category: "Laptops", price: 7000, image: "./src/img/productos/img_Andy/LENOVO2.jpg" },
   { id: 6, name: "PC Gamer", category: "Computadoras", price: 25000, image: "./src/img/productos/img_Eli/INFINIX.jpeg" },
 ];
-
-  
- // Referencias a HTML
+// Referencias a HTML
 const productList = document.getElementById("product-list");
 const cartTable = document.getElementById("items");
 const totalDisplay = document.getElementById("total");
@@ -139,3 +137,4 @@ emptyCartBtn.addEventListener("click", emptyCart);
 // Renderiza los productos y carrito inicial
 renderProducts();
 renderCart();
+
