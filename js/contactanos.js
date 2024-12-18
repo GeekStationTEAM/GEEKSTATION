@@ -49,7 +49,7 @@ document.getElementById("enviarMensaje").addEventListener("click", function (eve
   const email = document.querySelector("#email-contactanos input").value.trim();
   const phone = document.querySelector("#phone input").value.trim();
   const mensaje = document.querySelector("#mensajito textarea").value.trim();
-  const privacidad = document.querySelector("#terms input").checked;
+  const privacidad = document.querySelector("#terms_contact").checked;
 
   // Validaciones
   const isNameValid = validateName(nombre);
