@@ -10,7 +10,7 @@ const products = [
     { id: 8, name: "Motorola Edge 50 Fusión", category: "Smartphones", price: "$7,500.00 MXN", img: "./src/img/productos/img_Eli/MOTOROLA.jpeg" },
     { id: 9, name: "Xiaomi Redmi Note 13 pro+ 5G Dual SIM", category: "Smartphones", price: "$6,900.00 MXN", img: "./src/img/productos/img_Eli/REDMI.jpeg" },
     { id: 10, name: "Xiaomi Poco F6 Pro 5G ", category: "Smartphones", price: "$2,899.00 MXN", img: "./src/img/productos/img_Eli/POCCO.jpeg" },
-    { id: 11, name: "Garmin Forerunner 165", category: "Smartwatch", price: "$9,500.00 MXN", img: "./src/img/productos/img_Gera/garmin165_2.jpg" },,
+    { id: 11, name: "Garmin Forerunner 165", category: "Smartwatch", price: "$9,500.00 MXN", img: "./src/img/productos/img_Gera/garmin165_2.jpg" },
     { id: 12, name: "Huawei Band 9", category: "Smartwatch", price: "$609.00 MXN", img: "./src/img/productos/img_Gera/huaweiband9_1.jpg" },
     { id: 13, name: "Xiaomi 9", category: "Smartwatch", price: "$760.00 MXN", img: "./src/img/productos/img_Gera/xiaomi9_1.jpg" },
     { id: 14, name: "Pico 4 VR", category: "Smartwatch", price: "$7,999.00 MXN", img: "./src/img/productos/img_Gera/pico4_2.jpg" },
@@ -27,11 +27,11 @@ const products = [
     { id: 26, name: "Lenovo sff m710S i5-7500 ThinkCentre ", category: "Computadoras", price: "$5,799.00 MXN", img: "./src/img/productos/img_Jluis/Lenovo_sff_m710S_i5-7500.png" },
     { id: 27, name: "PC Lenovo sff m79 AMD A8 4GB y 500GB HDD Con Monitor de 19p ThinkCentre Clase A", category: "Computadoras", price: "$6,899.00 MXN", img: "./src/img/productos/img_Jluis/Lenovo_sff_m710S_i5-7500.png" },
     //{ id: 28, name: "Lenovo WORKSTATION P520 XEON 1TB SSD +3TB HDD 16GB RAM thinkstation P520", category: "Computadoras", price: "$11,399 MXN", img: "./src/img/productos/img_Jluis/Lenovo2_ThinkStation_P340_2.png" },
-    { id: 29, name: "Lenovo Tiny Lenovo M720Q i3-9 8 GB en RAM y 240 GB SSD con LCD de 19 pulgadas ThinkCentre", category: "Computadoras", price: "$$7,499.00 MXN", img: "./src/img/productos/img_JLuis/Lenovo3_Tiny_Lenovo_M720Q.png" },
+    //{ id: 29, name: "Lenovo Tiny Lenovo M720Q i3-9 8 GB en RAM y 240 GB SSD con LCD de 19 pulgadas ThinkCentre", category: "Computadoras", price: "$$7,499.00 MXN", img: "./src/img/productos/img_JLuis/Lenovo3_Tiny_Lenovo_M720Q.png" },
     { id: 30, name: "All In One HP Intel Celeron-N100", category: "Computadoras", price: "$6,899.00 MXN", img: "./src/img/productos/img_Jluis/HP_AllInOne.png" },
     { id: 31, name: "HP 800 G2 SFF-Core i5-6ta gen-8GB RAM, 500 GB HDD", category: "Computadoras", price: "$5,999.00 MXN", img: "./src/img/productos/img_Jluis/HP1_800_G2_SFF-Corei5.png" },
     { id: 32, name: "HP i5 USFF 4 GB RAM 250 GB HD Windows 10", category: "Computadoras", price: "$4,299.00 MXN", img: "./src/img/productos/img_Jluis/HP2_T640_Ryzen.png" },
-   // { id: 33, name: "HP i5 G420, hasta 32 GB de RAM, SSD 3 TB, Windows 11", category: "Computadoras", price: "$6,799 MXN", img:"./src/img/productos/img_Jluis/HP3_Desktop_1.png" },
+    //{ id: 33, name: "HP i5 G420, hasta 32 GB de RAM, SSD 3 TB, Windows 11", category: "Computadoras", price: "$6,799 MXN", img:"./src/img/productos/img_Jluis/HP3_Desktop_1.png" },
     { id: 34, name: "Dell OPTIPLEX Intel Core i5 RAM 8GB SSD 240GB Monitor 23.8", category: "Computadoras", price: "$8,899.00 MXN", img: "./src/img/productos/img_Jluis/Dell2_OPTIPLEX_3070Inteli5-9500.png" },
     { id: 35, name: "Dell Optiplex Intel i5-420 RAM 4GB SSD 480GB monitor 19.5", category: "Computadoras", price: "$8,399.00 MXN", img: "./src/img/productos/img_Jluis/DELL3_OPTIPLEX_SFF_3080_INTELCORE-I5-10500T.png" },
     { id: 36, name: "Dell OPTIPLEX 3070 Intel i5-9500 3.00GHz 16GB y 512 GB SSD", category: "Computadoras", price: "$5,799.00 MXN", img: "./src/img/productos/img_Jluis/Dell1_Optiplex_Intelcorei5.png" },
@@ -126,12 +126,17 @@ function clearAllProducts(){
     renderProducts(); //renderiza otra vez 
 }
 
+
 // Agregar al carrito
 function redirectToCart() {
     window.location.href = 'carrito.html';
-  }
+  }                                                   
 
-  localStorage.setItem('isAdmin', true); // true para administrador, false para usuario regular
+
+  localStorage.setItem('isAdmin', false); // true para administrador, false para usuario regular
+
+  localStorage.setItem('isAdmin', false); // true para administrador, false para usuario regular   
+
 
   // Variable para definir si el usuario es administrador
 //const isAdmin = true; // Cambia a false para probar como usuario regular

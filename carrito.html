@@ -25,9 +25,9 @@
         <div class="container mt-5">
             <h1 class="text-center mb-4">Carrito de Compras</h1>
             <hr>
-            
             <h2 class="mt-5">Tu Carrito</h2>
-            <table class="table table-hover mt-3">
+            <section style="width: auto; height: auto; overflow-x: auto;">
+            <table class="table table-hover mt-3"><!-- style="display:inline-block; width: 100%;"-->
                 <thead>
                     <tr>
                         <th scope="col">Producto</th>
@@ -40,7 +40,7 @@
                     <!-- Productos del carrito -->
                 </tbody>
             </table>
-
+            </section>
             <div class="text-end font-weight-bold mb-3" style="color: deeppink;">
                 Total: $<span id="total">0</span>
             </div>
@@ -49,12 +49,12 @@
                 <a href="confirma_compra.html" class="btn btn-primary">Terminar Compra</a>
             </div>
         </div>
-        <br><hr>
+
     </main>
     <!-- Lista de productos -->
-    <div class="row" id="product-list">
+    <section class="row" id="product-list" style="margin: 50px; width: auto">
         <!-- Productos disponibles se renderizan aquí -->
-    </div>
+    </section>
 
 
     <!-- Footer -->
