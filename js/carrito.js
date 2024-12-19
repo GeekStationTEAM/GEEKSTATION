@@ -53,6 +53,7 @@ const products = [
   { id: 52, name: "Amazon Fire HD 10", category: "Tablets", price: 4500, image: "./src/img/productos/img_Mariana/AmazonF1.jpg" },    
   // ... Más productos aquí
 ];
+
 // Referencias a HTML
 const productList = document.getElementById("product-grid");
 const cartTable = document.getElementById("items");
@@ -62,11 +63,14 @@ const emptyCartBtn = document.getElementById("vaciar-carrito");
 let cart = []; // Carrito vacío
 
 // Función para renderizar la lista de productos
-const renderProducts = () => {
+const renderProducts = (filter = "all") => {
 
+    const productList = document.getElementById("product-grid");
     productList.innerHTML = "";
 
-    products.forEach((product) => {
+    const filteredProducts = filter === "all" ? products : products.filter(product => product.category === filter);
+
+    filteredProducts.forEach((product) => {
         const productCard = document.createElement("article");
         productCard.className = "product-card";
 
@@ -84,6 +88,17 @@ const renderProducts = () => {
         productList.appendChild(productCard);
     });
 };
+
+
+// Cargar productos al cargar la página
+window.onload = () => {
+    renderProducts();
+};
+
+// Filtrar productos cuando cambie el select
+document.getElementById("category-filter").addEventListener("change", (event) => {
+    renderProducts(event.target.value);
+});
 
 // Función para renderizar productos en el carrito
 const renderCart = () => {
@@ -196,6 +211,12 @@ productList.addEventListener("click", (e) => {
         addToCart(id);
     }
 });
+
+// Filtrar productos cuando cambie el select
+document.getElementById("category-filter").addEventListener("change", (event) => {
+    renderProducts(event.target.value);
+});
+
 
 cartTable.addEventListener("click", cartActions);
 emptyCartBtn.addEventListener("click", emptyCart);
