@@ -21,25 +21,25 @@ public class UserEntity {
 	@Column(name = "id_usuario")
 	private Long id;
 	
-	@Column(name = "nombre", length = 30, nullable = false)
+	@Column(name = "nombre", length = 30, nullable = false, unique = false)
 	private String nombre;
 	
-	@Column(name = "apellido", length = 30, nullable = false)
+	@Column(name = "apellido", length = 30, nullable = false, unique = false)
 	private String apellido;
 	
 	@Column(name = "email", length = 80, nullable = false, unique = true)
 	private String email;
 	
-	@Column(name = "password", length = 60, nullable = false)
+	@Column(name = "password", length = 60, nullable = false, unique = false)
 	private String password;
 	
-	@Column(name = "telefono", length = 60, nullable = false)
+	@Column(name = "telefono", length = 60, nullable = false, unique = false)
 	private String telefono;
 	
-	@Column(name = "delegacion", length = 60, nullable = false)
+	@Column(name = "delegacion", length = 60, nullable = true, unique = false)
 	private String delegacion;
 	
-	@Column(name = "RFC", length = 60, nullable = false, unique = true)
+	@Column(name = "RFC", length = 60, nullable = true, unique = true)
 	private String rFC;
 	
 	
@@ -192,16 +192,10 @@ public class UserEntity {
 				&& Objects.equals(nombre, other.nombre) && Objects.equals(password, other.password)
 				&& Objects.equals(rFC, other.rFC) && Objects.equals(telefono, other.telefono);
 	}
+	
+	
 
 
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
 }
