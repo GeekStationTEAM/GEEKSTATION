@@ -236,8 +236,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
             productGrid.appendChild(productElement);
         });
-    } else {
-        alert("Acceso restringido. Inicia sesión como administrador para gestionar los productos.");
+    //} else {
+        //alert("Acceso restringido. Inicia sesión como administrador para gestionar los productos.");
     }
 });
 
