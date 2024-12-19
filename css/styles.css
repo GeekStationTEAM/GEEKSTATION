@@ -897,7 +897,7 @@ h2 {
 }
 
 .product-card button {
-    background-color: #3d0066;
+    background-color: #ff007f;
     border-color: #8a2be2;
     /* background-color: #f68e56; */
     color: white;
@@ -909,7 +909,8 @@ h2 {
 }
 
 .product-card button:hover {
-    background-color: #ff007f;
+    background-color:rgb(15, 215, 15);
+    
 }
 
 .product-card:hover {

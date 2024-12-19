@@ -54,7 +54,7 @@ const products = [
   // ... Más productos aquí
 ];
 // Referencias a HTML
-const productList = document.getElementById("product-list");
+const productList = document.getElementById("product-grid");
 const cartTable = document.getElementById("items");
 const totalDisplay = document.getElementById("total");
 const emptyCartBtn = document.getElementById("vaciar-carrito");
@@ -63,10 +63,12 @@ let cart = []; // Carrito vacío
 
 // Función para renderizar la lista de productos
 const renderProducts = () => {
+
     productList.innerHTML = "";
+
     products.forEach((product) => {
         const productCard = document.createElement("article");
-        productCard.className = "col-md-3 mb-4";
+        productCard.className = "product-card";
 
         productCard.innerHTML = `
             <div class="card" style="display:grid; margin: auto;">
