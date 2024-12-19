@@ -132,7 +132,11 @@ function redirectToCart() {
     window.location.href = 'carrito.html';
   }                                                   
 
+
+  localStorage.setItem('isAdmin', false); // true para administrador, false para usuario regular
+
   localStorage.setItem('isAdmin', false); // true para administrador, false para usuario regular   
+
 
   // Variable para definir si el usuario es administrador
 //const isAdmin = true; // Cambia a false para probar como usuario regular
@@ -194,3 +198,77 @@ document.getElementById("category-filter").addEventListener("change", (event) =>
     renderProducts(event.target.value);
 });
 
+// Verificar si el usuario es administrador
+// Esta función se ejecuta al cargar la página
+
+document.addEventListener("DOMContentLoaded", function () {
+    const isAdmin = localStorage.getItem("isAdmin") === "true"; // Obtener el estado del usuario administrador
+
+    if (isAdmin) {
+        // Mostrar botón para eliminar todos los productos
+        const deleteAllBtn = document.getElementById("delete-all-products-btn");
+        if (deleteAllBtn) {
+            deleteAllBtn.classList.remove("d-none");
+        }
+
+        // Mostrar controles de administrador en cada producto
+        const productGrid = document.getElementById("product-grid");
+        products.forEach(product => {
+            const productElement = document.createElement("div");
+            productElement.classList.add("product-item");
+
+            // Crear la estructura del producto
+            productElement.innerHTML = `
+                <div class="card">
+                    <img src="${product.img}" class="card-img-top" alt="${product.name}">
+                    <div class="card-body">
+                        <h5 class="card-title">${product.name}</h5>
+                        <p class="card-text">${product.price}</p>
+                        <div class="admin-controls d-none">
+                            <button class="btn btn-warning" onclick="editProduct(${product.id})">Editar</button>
+                            <button class="btn btn-danger" onclick="deleteProduct(${product.id})">Eliminar</button>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            // Mostrar controles de administrador si el usuario es administrador
+            if (isAdmin) {
+                const adminControls = productElement.querySelector(".admin-controls");
+                if (adminControls) {
+                    adminControls.classList.remove("d-none");
+                }
+            }
+
+            productGrid.appendChild(productElement);
+        });
+    } else {
+        alert("Acceso restringido. Inicia sesión como administrador para gestionar los productos.");
+    }
+});
+
+// Función para eliminar todos los productos
+function clearAllProducts() {
+    if (confirm("¿Estás seguro de que deseas eliminar todos los productos?")) {
+        document.getElementById("product-grid").innerHTML = ""; // Limpiar la vista de productos
+        alert("Todos los productos han sido eliminados.");
+    }
+}
+
+// Función para editar un producto (puedes implementarla según tus necesidades)
+function editProduct(productId) {
+    alert(`Editar producto con ID: ${productId}`);
+    // Implementa la lógica de edición aquí
+}
+
+// Función para eliminar un producto específico
+function deleteProduct(productId) {
+    if (confirm(`¿Estás seguro de que deseas eliminar el producto con ID: ${productId}?`)) {
+        const productGrid = document.getElementById("product-grid");
+        const productElement = productGrid.querySelector(`.product-item:nth-child(${productId})`);
+        if (productElement) {
+            productGrid.removeChild(productElement);
+            alert(`Producto con ID: ${productId} eliminado.`);
+        }
+    }
+}
