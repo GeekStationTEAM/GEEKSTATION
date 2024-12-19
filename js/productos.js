@@ -131,7 +131,7 @@ function redirectToCart() {
     window.location.href = 'carrito.html';
   }
 
-  localStorage.setItem('isAdmin', false); // true para administrador, false para usuario regular
+  localStorage.setItem('isAdmin', true); // true para administrador, false para usuario regular
 
   // Variable para definir si el usuario es administrador
 //const isAdmin = true; // Cambia a false para probar como usuario regular
