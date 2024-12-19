@@ -76,12 +76,23 @@ const addToCart = (id) => {
 
     if (existingProduct) {
         existingProduct.quantity++;
+        window.scroll({
+            top: 100,
+            left: 100,
+            behavior: "smooth",
+          });
     } else {
         cart.push({ ...product, quantity: 1 });
+        window.scroll({
+            top: 100,
+            left: 100,
+            behavior: "smooth",
+          });
     }
 
     renderCart();
     saveCartToLocalStorage(); // Actualiza el Local Storage
+
 
 };
 
