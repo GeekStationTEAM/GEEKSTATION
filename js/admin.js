@@ -9,8 +9,8 @@ document.getElementById('formLogin').addEventListener('submit', function(event) 
     if (email === "admin@gmail.com" && password === "admin") { // CUENTA ADMINISTRADOR
         localStorage.setItem('isAdmin', 'true'); // Guardar como administrador
         alert('¡Inicio de sesión exitoso como administrador!');
-        window.location.href = "registroProducto.html"; // Redirigir a la página de registro de productos
-    } else {
+        window.location.href = "index.html"; // Redirigir a la página de inicio
+    } else { 
         localStorage.setItem('isAdmin', 'false'); // Guardar como usuario normal
         alert('Inicio de sesión fallido. Por favor verifica tus credenciales.');
     }
