@@ -132,12 +132,6 @@ function redirectToCart() {
     window.location.href = 'carrito.html';
   }                                                   
 
-
-  localStorage.setItem('isAdmin', false); // true para administrador, false para usuario regular
-
-  localStorage.setItem('isAdmin', false); // true para administrador, false para usuario regular   
-
-
   // Variable para definir si el usuario es administrador
 //const isAdmin = true; // Cambia a false para probar como usuario regular
 
@@ -242,8 +236,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
             productGrid.appendChild(productElement);
         });
-    } else {
-        alert("Acceso restringido. Inicia sesión como administrador para gestionar los productos.");
+    //} else {
+        //alert("Acceso restringido. Inicia sesión como administrador para gestionar los productos.");
     }
 });
 
