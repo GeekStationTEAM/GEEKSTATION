@@ -1,4 +1,4 @@
-// Lista de productos con sus categorías
+// LISTA DE PRODUCTOS CON SUS CATEGORIAS
 const products = [
     { id: 1, name: "Laptop Acer Aspire 3", category: "Laptops", price: "$8,700.00 MXN", img:"./src/img/productos/img_Andy/ACER2.jpg" },
     { id: 2, name: "Laptop ASUS VivoBook 5", category: "Laptops", price: "$8,600.00 MXN", img: "./src/img/productos/img_Andy/ASUS3.jpg" },
@@ -55,7 +55,8 @@ const products = [
 ];
 
 
-// Función para renderizar los productos
+
+// FUNCION PARA RENDERIZAR LOS PRODUCTOS
 function renderProducts(filter = "all") {
     const productGrid = document.getElementById("product-grid");
     productGrid.innerHTML = "";  // Limpiar los productos actuales
@@ -74,23 +75,23 @@ function renderProducts(filter = "all") {
              <button onclick = "deleteProduct(${product.id})">Borrar</button>
         `;
 //            <button onclick = "editProductAndRedirect(${product.id})">Editar</button> ---DORMI BOTON QUE REDIRECCIONABA A REGISTRO PRODUCTO ADMIN
-
         productGrid.appendChild(productCard);
     });
 }
 
-// Cargar productos al cargar la página
-window.onload = () => {
-    renderProducts();
-};
-
-// Filtrar productos cuando cambie el select
-document.getElementById("category-filter").addEventListener("change", (event) => {
-    renderProducts(event.target.value);
-});
+// CARGAR PRODUCTOS A LA PÁGINA
+    window.onload = () => {
+        renderProducts();
+    };
 
 
-//Modificar productos
+// FILTRAR PRODUCTOS CUANDO CAMBIE EL SELECT
+    document.getElementById("category-filter").addEventListener("change", (event) => {
+        renderProducts(event.target.value);
+    });
+
+
+//MODIFICAR PRODUCTOS
 function updateProduct (id, newName, newPrice, newCategory, newImg){
     const product =products.find (p => p.id === id); //Busca el producto por id
     if (product){
@@ -102,12 +103,13 @@ function updateProduct (id, newName, newPrice, newCategory, newImg){
     }
 
     renderProducts(); //renderiza de nuevo los productos
-}
+    }
 function editProductAndRedirect(productId) {
     window.location.href = `registroProducto.html?id=${productId}`;
-  }
-//Eliminar un producto
+}
 
+
+//ELIMINAR UN PRODUCTO
 function deleteProduct(id){
     const productIndex = products.filter (p => p.id !== undefined).findIndex(p => p.id === id); //busca el índice del producto
     if (productIndex !== -1){
@@ -117,27 +119,26 @@ function deleteProduct(id){
     }
 
     renderProducts(); // renderiza otra vez los productos
-}
+    }
 
-//Eliminar todos los productos
-
+//ELIMINAR TODOS LOS PRODUCTOS
 function clearAllProducts(){
     products.length = 0; // vacía el arreglo
     renderProducts(); //renderiza otra vez 
-}
+    }
 
 
-// Agregar al carrito
+//AGREGAR AL CARRITO
 function redirectToCart() {
     window.location.href = 'carrito.html';
-  }                                                   
+    }                                                    
 
   // Variable para definir si el usuario es administrador
 //const isAdmin = true; // Cambia a false para probar como usuario regular
 
 const isAdmin = JSON.parse(localStorage.getItem('isAdmin'));
 
-// Función para renderizar los productos
+// FUNCION PARA RENDERIZAR LOS PRODUCTOS
 function renderProducts(filter = "all") {
     const productGrid = document.getElementById("product-grid");
     productGrid.innerHTML = ""; // Limpiar los productos actuales
@@ -165,7 +166,7 @@ function renderProducts(filter = "all") {
         `;
 
         productGrid.appendChild(productCard);
-    });
+     });
 }
 
 // Simula si el usuario es administrador. 
@@ -177,17 +178,17 @@ document.addEventListener("DOMContentLoaded", () => {
     // Muestra el botón solo si el usuario es administrador
     if (isAdmin) {
         deleteAllProductsBtn.classList.remove("d-none");
-    }
-});
+        }
+    });
 
 
 
-// Cargar productos al cargar la página
+// CARGAR PRODUCTOS AL CARGAR LA PAGINA Cargar productos al cargar la página
 window.onload = () => {
     renderProducts();
 };
 
-// Filtrar productos cuando cambie el select
+// FILTRAR PRODUCTOS CUANDO CAMBIE EL SELECT
 document.getElementById("category-filter").addEventListener("change", (event) => {
     renderProducts(event.target.value);
 });
@@ -241,7 +242,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 
-// Función para eliminar todos los productos
+// FUNCION PARA ELIMINAR TODOS LOS PRODUCTOS
 function clearAllProducts() {
     if (confirm("¿Estás seguro de que deseas eliminar todos los productos?")) {
         document.getElementById("product-grid").innerHTML = ""; // Limpiar la vista de productos
@@ -249,13 +250,13 @@ function clearAllProducts() {
     }
 }
 
-// Función para editar un producto (puedes implementarla según tus necesidades)
+// FUNCION PARA EDITAR UN PRODUCTO (PUEDES IMPLEMENTARLA SEGUN TUS NECESIDADES)
 function editProduct(productId) {
     alert(`Editar producto con ID: ${productId}`);
     // Implementa la lógica de edición aquí
 }
 
-// Función para eliminar un producto específico
+// FUNCION PARA ELIMINAR UN PRODUCTO ESPECIFICO
 function deleteProduct(productId) {
     if (confirm(`¿Estás seguro de que deseas eliminar el producto con ID: ${productId}?`)) {
         const productGrid = document.getElementById("product-grid");
