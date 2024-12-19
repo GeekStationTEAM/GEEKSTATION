@@ -103,6 +103,7 @@ function deleteProduct(productId) {
 function editProduct(productId) {
     alert(`Editar producto con ID: ${productId}`);
     // Implementa la lógica de edición
+    window.location.href = `registroProducto.html?id=${productId}`;
 }
 
 // ELIMINAR TODOS LOS PRODUCTOS
@@ -143,9 +144,63 @@ window.onload = () => {
     }
 };
 
+document.addEventListener("DOMContentLoaded", () => {
+    const deleteAllProductsBtn = document.getElementById("delete-all-products-btn");
 
+    // Muestra el botón solo si el usuario es administrador
+    if (isAdmin) {
+        deleteAllProductsBtn.classList.remove("d-none");
+        }
+    });
 
+// Verificar si el usuario es administrador
+// Esta función se ejecuta al cargar la página
 
+document.addEventListener("DOMContentLoaded", function () {
+    const isAdmin = localStorage.getItem("isAdmin") === "true"; // Obtener el estado del usuario administrador
+
+    if (isAdmin) {
+        // Mostrar botón para eliminar todos los productos
+        const deleteAllBtn = document.getElementById("delete-all-products-btn");
+        if (deleteAllBtn) {
+            deleteAllBtn.classList.remove("d-none");
+        }
+
+        // Mostrar controles de administrador en cada producto
+        const productGrid = document.getElementById("product-grid");
+        products.forEach(product => {
+            const productElement = document.createElement("div");
+            productElement.classList.add("product-item");
+
+            // Crear la estructura del producto
+            productElement.innerHTML = `
+                <div class="card">
+                    <img src="${product.img}" class="card-img-top" alt="${product.name}">
+                    <div class="card-body">
+                        <h5 class="card-title">${product.name}</h5>
+                        <p class="card-text">${product.price}</p>
+                        <div class="admin-controls d-none">
+                            <button class="btn btn-warning" onclick="editProduct(${product.id})">Editar</button>
+                            <button class="btn btn-danger" onclick="deleteProduct(${product.id})">Eliminar</button>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            // Mostrar controles de administrador si el usuario es administrador
+            if (isAdmin) {
+                const adminControls = productElement.querySelector(".admin-controls");
+                if (adminControls) {
+                    adminControls.classList.remove("d-none");
+                }
+            }
+
+            productGrid.appendChild(productElement);
+        });
+    //} else {
+        //alert("Acceso restringido. Inicia sesión como administrador para gestionar los productos.");
+    }
+});
 
 
 
@@ -188,7 +243,7 @@ function renderProducts(filter = "all") {
     });
 
 
-//MODIFICAR PRODUCTOS
+//MODIFICAR PRODUCTOS ////////////////////////////////////////////////////////////////////////////////////////
 function updateProduct (id, newName, newPrice, newCategory, newImg){
     const product =products.find (p => p.id === id); //Busca el producto por id
     if (product){
@@ -204,7 +259,7 @@ function updateProduct (id, newName, newPrice, newCategory, newImg){
 function editProductAndRedirect(productId) {
     window.location.href = `registroProducto.html?id=${productId}`;
 }
-
+////////////////////////////////////////////////////////////////////////////
 
 //ELIMINAR UN PRODUCTO
 function deleteProduct(id){
@@ -266,7 +321,7 @@ function renderProducts(filter = "all") {
      });
 }
 
-// Simula si el usuario es administrador. 
+// Simula si el usuario es administrador. //
 
 
 document.addEventListener("DOMContentLoaded", () => {

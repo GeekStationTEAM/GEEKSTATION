@@ -6,7 +6,7 @@ document.getElementById('formLogin').addEventListener('submit', function(event) 
     const password = document.getElementById('password').value;
 
     // Simulación de verificación de credenciales
-    if (email === "admin@gmail.com" && password === "GeekGirls") { // CUENTA ADMINISTRADOR
+    if (email === "admin@gmail.com" && password === "admin") { // CUENTA ADMINISTRADOR
         localStorage.setItem('isAdmin', 'true'); // Guardar como administrador
         alert('¡Inicio de sesión exitoso como administrador!');
         window.location.href = "index.html"; // Redirigir a la página de inicio
