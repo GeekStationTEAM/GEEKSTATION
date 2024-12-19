@@ -54,8 +54,105 @@ const products = [
     // ... Más productos aquí
 ];
 
+// DETERMINAR ROL DEL USUARIO
+const isAdmin = JSON.parse(localStorage.getItem("isAdmin")) || false;
+
+// RENDERIZAR PRODUCTOS
+function renderProducts(filter = "all") {
+    const productGrid = document.getElementById("product-grid");
+    productGrid.innerHTML = ""; // Limpia el contenido previo
+
+    const filteredProducts = filter === "all" ? products : products.filter(product => product.category === filter);
+
+    filteredProducts.forEach(product => {
+        const productCard = document.createElement("article");
+        productCard.classList.add("product-card");
+
+        const adminButtons = isAdmin
+            ? `
+            <button class="btn btn-warning" onclick="editProduct(${product.id})">Editar</button>
+            <button class="btn btn-danger" onclick="deleteProduct(${product.id})">Eliminar</button>
+            `
+            : "";
+
+        productCard.innerHTML = `
+            <img src="${product.img}" alt="${product.name}">
+            <h2>${product.name}</h2>
+            <p>${product.price}</p>
+            <button class="btn btn-primary" onclick="redirectToCart(${product.id})">Agregar al carrito</button>
+            ${adminButtons}
+        `;
+
+        productGrid.appendChild(productCard); // Agrega el producto al contenedor
+    });
+}
 
 
+// ELIMINAR UN PRODUCTO
+function deleteProduct(productId) {
+    const productIndex = products.findIndex(product => product.id === productId);
+    if (productIndex !== -1) {
+        products.splice(productIndex, 1);
+        renderProducts(); // Actualiza la lista
+    } else {
+        console.error("Producto no encontrado con id:", productId);
+    }
+}
+
+// EDITAR UN PRODUCTO
+function editProduct(productId) {
+    alert(`Editar producto con ID: ${productId}`);
+    // Implementa la lógica de edición
+}
+
+// ELIMINAR TODOS LOS PRODUCTOS
+function clearAllProducts() {
+    if (confirm("¿Estás seguro de que deseas eliminar todos los productos?")) {
+        products.length = 0;
+        renderProducts();
+    }
+}
+
+// REDIRIGIR AL CARRITO
+function redirectToCart(productId) {
+    const product = products.find(p => p.id === productId);
+    if (!product) {
+        console.error("Producto no encontrado con ID:", productId);
+        return;
+    }
+
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    cart.push(product);
+    localStorage.setItem("cart", JSON.stringify(cart));
+    window.location.href = "carrito.html"; // Asegúrate de que la URL sea correcta
+}
+
+// FILTRAR PRODUCTOS
+document.getElementById("category-filter").addEventListener("change", event => {
+    renderProducts(event.target.value);
+});
+
+// CARGAR PRODUCTOS AL INICIAR
+window.onload = () => {
+    renderProducts();
+
+    // Mostrar botón de eliminar todo solo si es administrador
+    const deleteAllProductsBtn = document.getElementById("delete-all-products-btn");
+    if (isAdmin && deleteAllProductsBtn) {
+        deleteAllProductsBtn.classList.remove("d-none");
+    }
+};
+
+
+
+
+
+
+
+
+
+
+/* FUNCIONES REDUNDANTES 
 // FUNCION PARA RENDERIZAR LOS PRODUCTOS
 function renderProducts(filter = "all") {
     const productGrid = document.getElementById("product-grid");
@@ -267,3 +364,4 @@ function deleteProduct(productId) {
         }
     }
 }
+*/

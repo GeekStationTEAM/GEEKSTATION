@@ -222,4 +222,3 @@ cartTable.addEventListener("click", cartActions);
 emptyCartBtn.addEventListener("click", emptyCart);
 
 
-
