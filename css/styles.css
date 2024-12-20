@@ -46,7 +46,7 @@ body {
     /*overflow: default; /*Evita que el fondo se salga del viewport */
 }
 
-/* Contenedor de fondo animado */
+/* Contenedor de fondo animado 
 .background-animation {
     position: fixed;
     top: 0;
@@ -54,10 +54,10 @@ body {
     width: 100%;
     height: 100%;
     background: #eaeaea;
-    /* Fondo base */
+    /* Fondo base 
     overflow: hidden;
     z-index: -1;
-    /* Ubicar detrás del contenido principal */
+    /* Ubicar detrás del contenido principal 
 }
 
 /* Estilo de las estrellas 
@@ -696,6 +696,19 @@ h2 {
   
 /* -----CSS para contáctanos----*/
 
+#petlogo-contactanos {
+    width: 100%;               
+    max-width: 500px;    
+    position:absolute; 
+    display:flex;      
+    height: auto;
+    margin-top: 80px;               
+    display: flex;                              
+    background-color:transparent;     
+    border-radius: 50%;
+    margin-left: 10px;
+}
+
 #contactanos {
     color: #ff007f;
 }
@@ -1265,4 +1278,25 @@ section {
     #Acerca .carta {
         padding: 50px;
     }
+}
+
+/*Background de resistrate*/
+.background-registrate{
+    background-image: url("/src/img/fondoregistro.jpg");
+    height: auto;
+    position:static;
+    size-adjust: 2000px;
+}
+
+.background-animation-login{
+    background-image: url("/src/img/FondoMorado.jpg");
+    height:auto;
+    position:relative;
+    size-adjust: 2000px;
+    width: 100%;
+}
+
+.background-animation-contactanos{
+    background-image: url("/src/img/abstract-7690589_1280.jpg");
+
 }
