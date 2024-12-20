@@ -416,7 +416,7 @@ button.normal {
     justify-content: center;    
     align-items: center;        
     margin: 0 auto;             
-    background-color: #eaeaea;     
+    background-color: transparent;     
 }
 
 .imagen-flotante {
@@ -1228,7 +1228,7 @@ h1 {
 }
 
 h2 {
-    color: #eaeaea;
+    color: #ff007f;
   ;
 
 }
