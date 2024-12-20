@@ -1,4 +1,4 @@
-// LISTA DE PRODUCTOS CON SUS CATEGORIAS
+//Lista de productos
 const products = [
     { id: 1, name: "Laptop Acer Aspire 3", category: "Laptops", price: "$8,700.00 MXN", img:"./src/img/productos/img_Andy/ACER2.jpg" },
     { id: 2, name: "Laptop ASUS VivoBook 5", category: "Laptops", price: "$8,600.00 MXN", img: "./src/img/productos/img_Andy/ASUS3.jpg" },
