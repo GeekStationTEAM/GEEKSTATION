@@ -1,4 +1,4 @@
-//Lista de productos
+// LISTA DE PRODUCTOS CON SUS CATEGORIAS
 const products = [
     { id: 1, name: "Laptop Acer Aspire 3", category: "Laptops", price: "$8,700.00 MXN", img:"./src/img/productos/img_Andy/ACER2.jpg" },
     { id: 2, name: "Laptop ASUS VivoBook 5", category: "Laptops", price: "$8,600.00 MXN", img: "./src/img/productos/img_Andy/ASUS3.jpg" },
@@ -11,8 +11,6 @@ const products = [
     { id: 9, name: "Xiaomi Redmi Note 13 pro+ 5G Dual SIM", category: "Smartphones", price: "$6,900.00 MXN", img: "./src/img/productos/img_Eli/REDMI.jpeg" },
     { id: 10, name: "Xiaomi Poco F6 Pro 5G", category: "Smartphones", price: "$2,899.00 MXN", img: "./src/img/productos/img_Eli/POCCO.jpeg" },
     { id: 11, name: "Garmin Forerunner 165", category: "Smartwatch", price: "$9,500.00 MXN", img: "./src/img/productos/img_Gera/garmin165_2.jpg" },
-    { id: 10, name: "Xiaomi Poco F6 Pro 5G ", category: "Smartphones", price: "$9,500.00 MXN", img: "./src/img/productos/img_Eli/POCCO.jpeg" },
-    { id: 11, name: "Garmin Forerunner 165", category: "Smartwatch", price: "$2,899.00 MXN", img: "./src/img/productos/img_Gera/garmin165_2.jpg" },,
     { id: 12, name: "Huawei Band 9", category: "Smartwatch", price: "$609.00 MXN", img: "./src/img/productos/img_Gera/huaweiband9_1.jpg" },
     { id: 13, name: "Xiaomi 9", category: "Smartwatch", price: "$760.00 MXN", img: "./src/img/productos/img_Gera/xiaomi9_1.jpg" },
     { id: 14, name: "Pico 4 VR", category: "Smartwatch", price: "$7,999.00 MXN", img: "./src/img/productos/img_Gera/pico4_2.jpg" },
