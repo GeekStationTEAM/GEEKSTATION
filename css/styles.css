@@ -1305,7 +1305,7 @@ section {
 
 
 
-/******************** CARRRITO DE COMPRAS DISEÑO */
+/******************** CARRRITO DE COMPRAS DISEÑO ****************************/
 .table th, .table td {
     padding: 15px; /* Espaciado interno de las celdas */
     border: none; /* Elimina el borde de las celdas para unificar */
@@ -1358,4 +1358,7 @@ section {
 }
 
 
-
+.team-member-image {
+    border-radius: 35px; /* Ajusta el valor según el nivel de redondez que desees */
+    overflow: hidden; /* Asegura que no se muestre el contenido fuera de los bordes redondeados */
+}
