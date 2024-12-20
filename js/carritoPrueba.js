@@ -42,7 +42,22 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         localStorage.setItem("cart", JSON.stringify(cart));
         updateCartUI();
+     };
+/*
+    window.updateQuantity = (index, action) => {
+        if (action === "increase") {
+            cart[index].quantity++;
+        } else if (action === "decrease") {
+            if (cart[index].quantity > 1) {
+                cart[index].quantity--;
+            } else {
+                return; // Evita disminuir por debajo de 1
+            }
+        }
+        localStorage.setItem("cart", JSON.stringify(cart));
+        updateCartUI();
     };
+    */
 
     window.clearCart = () => {
         localStorage.removeItem("cart");
