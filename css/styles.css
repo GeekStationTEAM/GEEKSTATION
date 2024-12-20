@@ -1365,6 +1365,9 @@ section {
     overflow: hidden; /* Asegura que no se muestre el contenido fuera de los bordes redondeados */
 }
 
+
+
+
 /********************ESTILOS PARA TITULOS DE MISION, VISION VALORES********/
 .subheading {
     text-align: center;
