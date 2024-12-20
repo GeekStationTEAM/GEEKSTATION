@@ -699,11 +699,12 @@ h2 {
 #petlogo-contactanos {
     width: 100%;               
     max-width: 500px;    
-    position:absolute;       
+    position:absolute; 
+    display:flex;      
     height: auto;
-    margin-top: 60px;               
+    margin-top: 80px;               
     display: flex;                              
-    background-color:#f5f7f9;     
+    background-color:transparent;     
     border-radius: 50%;
     margin-left: 10px;
 }
@@ -1277,4 +1278,25 @@ section {
     #Acerca .carta {
         padding: 50px;
     }
+}
+
+/*Background de resistrate*/
+.background-registrate{
+    background-image: url("/src/img/fondoregistro.jpg");
+    height: auto;
+    position:static;
+    size-adjust: 2000px;
+}
+
+.background-animation-login{
+    background-image: url("/src/img/FondoMorado.jpg");
+    height:auto;
+    position:relative;
+    size-adjust: 2000px;
+    width: 100%;
+}
+
+.background-animation-contactanos{
+    background-image: url("/src/img/abstract-7690589_1280.jpg");
+
 }
