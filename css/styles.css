@@ -1300,3 +1300,27 @@ section {
     background-image: url("/src/img/abstract-7690589_1280.jpg");
 
 }
+
+/*Background de registrate*/
+.mi-seccion .background-registrate {
+    background-image: url("../img/fondoregistro.jpg");
+    height: auto;
+    position: static;
+    size-adjust: 2000px;
+}
+
+/* Fondo de animación para login */
+.mi-seccion .background-animation-login {
+    background-image: url("../img/FondoMorado.jpg");
+    height: auto;
+    position: relative;
+    size-adjust: 2000px;
+    width: 100%;
+}
+
+/* Fondo de animación para contáctanos */
+.mi-seccion .background-animation-contactanos {
+    background-image: url("../img/abstract-7690589_1280.jpg");
+    height: auto; /* Añadido para asegurar que se aplique la altura */
+    width: 100%; /* Añadido para asegurar que se aplique el ancho */
+}
