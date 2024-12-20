@@ -9,7 +9,7 @@ document.getElementById("formularioProducto").addEventListener("submit", functio
     const precio = document.getElementById("precio").value.trim();
     const cantidad = document.getElementById("cantidad").value.trim();
     const codigo = document.getElementById("codigo").value.trim();
-    const imagen= document.getElementById("imagen").files[0];
+    const imagen= document.getElementById("imagen").value.trim ();
 
     // Imprimir los valores en la consola
     console.log("Nombre:", nombre);
@@ -93,12 +93,16 @@ document.getElementById("formularioProducto").addEventListener("submit", functio
         return; // Se detiene el envío si hay letras u otros caracteres
     }
  
-    // Para verificar si el campo "imagen" está vacío
+    if (!imagen || !isValidURL(imagen)) {
+        showAlert("Por favor, ingresa una URL válida para la imagen.", "warning");
+        return;
+    }
+    /*// Para verificar si el campo "imagen" está vacío
     if (!imagen) {
         showAlert("Por favor, ingresa una imagen.", "warning");
         return; // Se detiene el envío si falta una imagen
     }
-
+*/
 
     // Crear el objeto productoData con los datos del formulario
     // constructor(nombre, descripcion, marca, categoria, precio, cantidad, codigo, imagen) { // Para programacion orientada a objetos
@@ -110,7 +114,7 @@ document.getElementById("formularioProducto").addEventListener("submit", functio
         precio: parseFloat(precio), // Asegúrate de que el precio sea un número
         cantidad: parseInt(cantidad), // Asegúrate de que la cantidad sea un número entero
         codigo: codigo,
-        imagen: imagen.name  // Con esto no solo se guarda el nombre, sino que se obteiene el archivo completo para enviar a servidor
+        imagen: imagen,  // Con esto no solo se guarda el nombre, sino que se obteiene el archivo completo para enviar a servidor
     };
 
 
@@ -136,6 +140,17 @@ document.getElementById("formularioProducto").addEventListener("submit", functio
      actualizarListaDeProductos();
  });
  
+
+// Validar si una URL es válida
+function isValidURL(string) {
+    try {
+        new URL(string);
+        return true;
+    } catch (_) {
+        return false;
+    }
+}
+
  // Función para actualizar la lista de productos
  function actualizarListaDeProductos() {
      const productos = JSON.parse(localStorage.getItem("productos")) || [];
