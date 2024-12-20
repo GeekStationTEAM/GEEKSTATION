@@ -30,6 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("total").textContent = total.toFixed(2);
     }
 
+
     window.updateQuantity = (index, action) => {
         if (action === "increase") {
             cart[index].quantity++;
@@ -37,12 +38,12 @@ document.addEventListener("DOMContentLoaded", () => {
             if (cart[index].quantity > 1) {
                 cart[index].quantity--;
             } else {
-                return; // Evita disminuir por debajo de 1
+                cart.splice(index, 1); // Elimina el producto si la cantidad llega a 0
             }
         }
         localStorage.setItem("cart", JSON.stringify(cart));
         updateCartUI();
-     };
+    };
 /*
     window.updateQuantity = (index, action) => {
         if (action === "increase") {
