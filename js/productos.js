@@ -1,4 +1,4 @@
-//Lista de productos
+// LISTA DE PRODUCTOS CON SUS CATEGORIAS
 const products = [
     { id: 1, name: "Laptop Acer Aspire 3", category: "Laptops", price: "$8,700.00 MXN", img:"./src/img/productos/img_Andy/ACER2.jpg" },
     { id: 2, name: "Laptop ASUS VivoBook 5", category: "Laptops", price: "$8,600.00 MXN", img: "./src/img/productos/img_Andy/ASUS3.jpg" },
@@ -11,8 +11,6 @@ const products = [
     { id: 9, name: "Xiaomi Redmi Note 13 pro+ 5G Dual SIM", category: "Smartphones", price: "$6,900.00 MXN", img: "./src/img/productos/img_Eli/REDMI.jpeg" },
     { id: 10, name: "Xiaomi Poco F6 Pro 5G", category: "Smartphones", price: "$2,899.00 MXN", img: "./src/img/productos/img_Eli/POCCO.jpeg" },
     { id: 11, name: "Garmin Forerunner 165", category: "Smartwatch", price: "$9,500.00 MXN", img: "./src/img/productos/img_Gera/garmin165_2.jpg" },
-    { id: 10, name: "Xiaomi Poco F6 Pro 5G ", category: "Smartphones", price: "$9,500.00 MXN", img: "./src/img/productos/img_Eli/POCCO.jpeg" },
-    { id: 11, name: "Garmin Forerunner 165", category: "Smartwatch", price: "$2,899.00 MXN", img: "./src/img/productos/img_Gera/garmin165_2.jpg" },,
     { id: 12, name: "Huawei Band 9", category: "Smartwatch", price: "$609.00 MXN", img: "./src/img/productos/img_Gera/huaweiband9_1.jpg" },
     { id: 13, name: "Xiaomi 9", category: "Smartwatch", price: "$760.00 MXN", img: "./src/img/productos/img_Gera/xiaomi9_1.jpg" },
     { id: 14, name: "Pico 4 VR", category: "Smartwatch", price: "$7,999.00 MXN", img: "./src/img/productos/img_Gera/pico4_2.jpg" },
@@ -70,13 +68,14 @@ function renderProducts(filter = "all") {
         const productCard = document.createElement("article");
         productCard.classList.add("product-card");
 
+//BOTONES PARA ADMINISTRADOR
         const adminButtons = isAdmin
             ? `
             <button class="btn btn-warning" onclick="editProduct(${product.id})">Editar</button>
             <button class="btn btn-danger" onclick="deleteProduct(${product.id})">Eliminar</button>
             `
             : "";
-
+//ESTRUCTURA HTML DE CADA PRODUCTO
         productCard.innerHTML = `
             <img src="${product.img}" alt="${product.name}">
             <h2>${product.name}</h2>
@@ -105,7 +104,6 @@ function deleteProduct(productId) {
 function editProduct(productId) {
     alert(`Editar producto con ID: ${productId}`);
     // Implementa la lógica de edición
-    window.location.href = `registroProducto.html?id=${productId}`;
 }
 
 // ELIMINAR TODOS LOS PRODUCTOS
@@ -116,6 +114,10 @@ function clearAllProducts() {
     }
 }
 
+
+
+
+/*
 // REDIRIGIR AL CARRITO
 function redirectToCart(productId) {
     const product = products.find(p => p.id === productId);
@@ -129,11 +131,38 @@ function redirectToCart(productId) {
     localStorage.setItem("cart", JSON.stringify(cart));
     window.location.href = "carrito.html"; // Asegúrate de que la URL sea correcta
 }
+*/
+
+function redirectToCart(productId) {
+    const product = products.find(p => p.id === productId);
+    if (!product) {
+        console.error("Producto no encontrado con ID:", productId);
+        return;
+    }
+
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const existingProduct = cart.find(p => p.id === productId);
+
+    if (existingProduct) {
+        existingProduct.quantity++;
+    } else {
+        cart.push({ ...product, quantity: 1 }); // Agrega la cantidad inicial
+    }
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+    window.location.href = "carrito.html";
+}
+
+
+
+
+
 
 // FILTRAR PRODUCTOS
 document.getElementById("category-filter").addEventListener("change", event => {
     renderProducts(event.target.value);
 });
+
 
 // CARGAR PRODUCTOS AL INICIAR
 window.onload = () => {
@@ -146,63 +175,9 @@ window.onload = () => {
     }
 };
 
-document.addEventListener("DOMContentLoaded", () => {
-    const deleteAllProductsBtn = document.getElementById("delete-all-products-btn");
 
-    // Muestra el botón solo si el usuario es administrador
-    if (isAdmin) {
-        deleteAllProductsBtn.classList.remove("d-none");
-        }
-    });
 
-// Verificar si el usuario es administrador
-// Esta función se ejecuta al cargar la página
 
-document.addEventListener("DOMContentLoaded", function () {
-    const isAdmin = localStorage.getItem("isAdmin") === "true"; // Obtener el estado del usuario administrador
-
-    if (isAdmin) {
-        // Mostrar botón para eliminar todos los productos
-        const deleteAllBtn = document.getElementById("delete-all-products-btn");
-        if (deleteAllBtn) {
-            deleteAllBtn.classList.remove("d-none");
-        }
-
-        // Mostrar controles de administrador en cada producto
-        const productGrid = document.getElementById("product-grid");
-        products.forEach(product => {
-            const productElement = document.createElement("div");
-            productElement.classList.add("product-item");
-
-            // Crear la estructura del producto
-            productElement.innerHTML = `
-                <div class="card">
-                    <img src="${product.img}" class="card-img-top" alt="${product.name}">
-                    <div class="card-body">
-                        <h5 class="card-title">${product.name}</h5>
-                        <p class="card-text">${product.price}</p>
-                        <div class="admin-controls d-none">
-                            <button class="btn btn-warning" onclick="editProduct(${product.id})">Editar</button>
-                            <button class="btn btn-danger" onclick="deleteProduct(${product.id})">Eliminar</button>
-                        </div>
-                    </div>
-                </div>
-            `;
-
-            // Mostrar controles de administrador si el usuario es administrador
-            if (isAdmin) {
-                const adminControls = productElement.querySelector(".admin-controls");
-                if (adminControls) {
-                    adminControls.classList.remove("d-none");
-                }
-            }
-
-            productGrid.appendChild(productElement);
-        });
-    //} else {
-        //alert("Acceso restringido. Inicia sesión como administrador para gestionar los productos.");
-    }
-});
 
 
 
@@ -245,7 +220,7 @@ function renderProducts(filter = "all") {
     });
 
 
-//MODIFICAR PRODUCTOS ////////////////////////////////////////////////////////////////////////////////////////
+//MODIFICAR PRODUCTOS
 function updateProduct (id, newName, newPrice, newCategory, newImg){
     const product =products.find (p => p.id === id); //Busca el producto por id
     if (product){
@@ -261,7 +236,7 @@ function updateProduct (id, newName, newPrice, newCategory, newImg){
 function editProductAndRedirect(productId) {
     window.location.href = `registroProducto.html?id=${productId}`;
 }
-////////////////////////////////////////////////////////////////////////////
+
 
 //ELIMINAR UN PRODUCTO
 function deleteProduct(id){
@@ -323,7 +298,7 @@ function renderProducts(filter = "all") {
      });
 }
 
-// Simula si el usuario es administrador. //
+//////////////////////////////////////// Simula si el usuario es administrador. 
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -347,7 +322,8 @@ document.getElementById("category-filter").addEventListener("change", (event) =>
     renderProducts(event.target.value);
 });
 
-// Verificar si el usuario es administrador
+//////////////////////////////////////////////////////////////////////////////////////////////
+// // Verificar si el usuario es administrador
 // Esta función se ejecuta al cargar la página
 
 document.addEventListener("DOMContentLoaded", function () {
