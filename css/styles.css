@@ -1364,3 +1364,14 @@ section {
     border-radius: 35px; /* Ajusta el valor según el nivel de redondez que desees */
     overflow: hidden; /* Asegura que no se muestre el contenido fuera de los bordes redondeados */
 }
+
+/********************ESTILOS PARA TITULOS DE MISION, VISION VALORES********/
+.subheading {
+    text-align: center;
+}
+
+.equipo-desarrollador {
+    text-align: center;
+    font-style: bold;
+
+}
