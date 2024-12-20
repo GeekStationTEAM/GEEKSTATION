@@ -12,6 +12,7 @@ document.getElementById('formLogin').addEventListener('submit', function(event) 
         window.location.href = "index.html"; // Redirigir a la página de inicio
     } else { 
         localStorage.setItem('isAdmin', 'false'); // Guardar como usuario normal
-        alert('Inicio de sesión fallido. Por favor verifica tus credenciales.');
+        alert('Inicio de sesión exitoso. ¡Bienvenidx a GeekStation!.');
+        window.location.href = "productos.html"; // Redirigir a la página de inicio
     }
 });
