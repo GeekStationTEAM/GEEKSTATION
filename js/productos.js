@@ -104,6 +104,8 @@ function deleteProduct(productId) {
 function editProduct(productId) {
     alert(`Editar producto con ID: ${productId}`);
     // Implementa la lógica de edición
+    
+        window.location.href = `registroProducto.html?id=${productId}`;
 }
 
 // ELIMINAR TODOS LOS PRODUCTOS

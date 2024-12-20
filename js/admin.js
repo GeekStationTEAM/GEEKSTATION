@@ -9,7 +9,7 @@ document.getElementById('formLogin').addEventListener('submit', function(event) 
     if (email === "admin@gmail.com" && password === "admin") { // CUENTA ADMINISTRADOR
         localStorage.setItem('isAdmin', 'true'); // Guardar como administrador
         alert('¡Inicio de sesión exitoso como administrador!');
-        window.location.href = "index.html"; // Redirigir a la página de inicio
+        window.location.href = "productos.html"; // Redirigir a la página de inicio
     } else { 
         localStorage.setItem('isAdmin', 'false'); // Guardar como usuario normal
         alert('Inicio de sesión exitoso. ¡Bienvenidx a GeekStation!.');
