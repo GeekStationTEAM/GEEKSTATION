@@ -1304,3 +1304,58 @@ section {
 
 
 
+
+/* CARRRITO DE COMPRAS DISEÑO */
+.table th, .table td {
+    padding: 15px; /* Espaciado interno de las celdas */
+    border: none; /* Elimina el borde de las celdas para unificar */
+    text-align: left; /* Alineación del texto */
+}
+.bg-purple {
+    background-color: #6f2c91; /* Color morado oscuro */
+}
+.btn-purple {
+    background-color: #6f2c91; /* Color morado oscuro para el botón */
+    color: white; /* Color del texto del botón */
+}
+.table-hover tbody tr {
+    transition: background-color 0.3s ease; /* Suaviza el cambio de color */
+}
+.table-hover tbody tr:hover {
+    background-color: rgba(111, 44, 145, 0.2); /* Color al pasar el mouse */
+}
+.table {
+    border-collapse: collapse; /* Asegura que los bordes colapsen */
+    width: 100%; /* Ancho de la tabla */
+}
+.table th, .table td {
+    padding: 15px; /* Espaciado interno de las celdas */
+    border: none; /* Elimina el borde de las celdas para unificar */
+    text-align: left; /* Alineación del texto */
+    
+}
+.table thead th {
+    background-color: #6f2c91; /* Fondo de la cabecera */
+    color: white; /* Color del texto de la cabecera */
+    border-bottom: 2px solid #6f2c91; /* Borde inferior para la cabecera */
+    
+}
+.table tbody tr {
+    background-color: #fff; /* Color de fondo blanco para las filas */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Sombra sutil para las filas */
+    
+}
+.text-end {
+    text-align: end; /* Asegura que el total esté alineado a la derecha */
+}
+.btn-outline-danger {
+    color: #6f2c91; /* Color del texto de los botones */
+    border-color: #6f2c91; /* Color del borde */
+    
+}
+.btn-outline-danger:hover {
+    background-color: rgba(111, 44, 145, 0.1); /* Fondo al pasar el mouse */
+}
+
+
+
